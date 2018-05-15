@@ -1,0 +1,191 @@
+.header{
+    width: 100%;
+    height: 60px;
+    -webkit-box-shadow: 0px 5px 23px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 23px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 23px -9px rgba(0,0,0,0.75);
+}
+
+.content {
+    display: block;
+    max-width: 1075px;
+    margin: 0 auto !important;
+    padding: 10px 0;
+}
+
+.corpo-simulador {
+    padding: 20px;
+}
+
+.tabela-navegacao {
+    border-bottom: 1px solid #c0c0c0;
+    border-top: 1px solid #ddd;
+    color: #333;
+    /* font-family: proximanova-bold; */
+    font-size: 24px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 55px;
+}
+
+.tabela-navegacao-fases {
+    border-top: 0;
+    margin-bottom: 31px;
+}
+
+.tabela-navegacao-setas {
+    color: #ccc;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+
+.tabela-navegacao-setas.tabela-navegacao-right {
+    padding-left: 40px;
+    right: 0;
+}
+
+.tabela-navegacao-setas.tabela-navegacao-left {
+    padding-right: 40px;
+    left: 0;
+}
+
+/*GRUPO*/
+
+.section-container {
+    margin-bottom: 36px;
+}
+
+.tabela-header-titulo {
+    margin-bottom: 19px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 62.5625em) {
+    .tabela-com-jogos-por-grupo {
+        border-right: 1px solid #ddd;
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: top;
+        width: 68%;
+    }
+}
+
+/*tabela-times*/
+.tabela-times {
+    background-color: #fcfcfc;
+    font-size: 13px;
+    position: absolute;
+    table-layout: fixed;
+    width: 140px;
+    z-index: 10;
+}
+
+@media only screen and (min-width: 62.5625em) {
+    .tabela-com-jogos-por-grupo .tabela-times {
+        width: 239px;
+    }
+}
+
+.tabela-times-col-posicao {
+    width: 25px;
+}
+
+.tabela-times-col-time {
+    width: auto;
+}
+
+.tabela-times-col-variacao {
+    width: 38px;
+}
+
+.tabela-head-linha {
+    border-bottom: 1px solid #c0c0c0;
+    border-top: 1px solid #ddd;
+    color: #999;
+    font-size: 9px;
+    font-size: 11px;
+    height: 40px;
+}
+
+.tabela-times-head {
+    line-height: 10px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.tabela-body-linha {
+    border-bottom: solid 1px #ddd;
+    height: 40px;
+}
+
+@media only screen and (min-width: 38.8125em) {
+    .tabela-body-linha {
+        height: 55px;
+    }
+}
+
+.tabela-body-linha td {
+    background-color: #fcfcfc;
+    line-height: 14px;
+}
+
+.tabela-pontos .tabela-head-linha, .tabela-pontos .tabela-body-linha {
+    text-align: center;
+}
+
+/*tabela-pontos*/
+.tabela-scroll {
+    opacity: 0;
+    overflow: hidden;
+    position: relative;
+    transition: opacity .35s;
+    z-index: 5;
+    opacity: 1;
+    padding-left: 238px;
+}
+
+.tabela-pontos {
+    font-size: 14px;
+    width: 100%;
+}
+
+.tabela th, .tabela td {
+    vertical-align: middle;
+}
+
+.tabela-pontos th {
+    padding: 0 17px;
+    white-space: nowrap;
+}
+
+@media only screen and (min-width: 62.5625em) {
+    .tabela-pontos th {
+        padding: 0 17px;
+    }
+}
+
+.tabela-pontos-th-duplo {
+    padding: 0 13px;
+}
+
+@media only screen and (min-width: 62.5625em) {
+    .tabela-pontos .tabela-pontos-th-duplo {
+        padding: 0 14px;
+    }
+}
+
+@media only screen and (min-width: 38.8125em) {
+    .tabela-pontos td {
+        padding-top: 2px;
+    }
+}
+
+.tabela-pontos td:nth-child(odd) {
+    background-color: #f5f5f5;
+}
