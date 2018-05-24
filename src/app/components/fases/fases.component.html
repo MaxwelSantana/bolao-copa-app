@@ -1,0 +1,10 @@
+<div class="corpo-simulador">
+    <nav class="tabela-navegacao tabela-navegacao-fases">
+			<span class="tabela-navegacao-setas tabela-navegacao-left"><i class="fas fa-arrow-left"></i></span>
+      <span>Fase de grupos</span>
+      <span class="tabela-navegacao-setas tabela-navegacao-right"><i class="fas fa-arrow-right"></i></span>
+		</nav>
+    <div class="container-fases">
+      <app-grupo *ngFor="let grupo of faseAtual?.grupos" [grupo]="grupo"></app-grupo>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <section class="section-container">
   <header>
-    <h2 class="tabela-header-titulo">Grupo A</h2>
+    <h2 class="tabela-header-titulo">{{grupo.nome_grupo}}</h2>
   </header>
   <div class="tabela tabela-com-jogos-por-grupo">
     <table class="tabela-times">
@@ -15,24 +15,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="tabela-body-linha">
+        <tr *ngFor="let equipe of equipes" class="tabela-body-linha">
           <td class="tabela-times-posicao" style="color:#0000ff;">1</td>
-          <td class="tabela-times-time" >Arábia Saudita</td>
-          <td class="tabela-times-variacao">0</td>
-        </tr>
-        <tr class="tabela-body-linha">
-          <td class="tabela-times-posicao" style="color:#0000ff;">1</td>
-          <td class="tabela-times-time" >Egito</td>
-          <td class="tabela-times-variacao">0</td>
-        </tr>
-        <tr class="tabela-body-linha">
-          <td class="tabela-times-posicao" style="color:#0000ff;">1</td>
-          <td class="tabela-times-time" >Russia</td>
-          <td class="tabela-times-variacao">0</td>
-        </tr>
-        <tr class="tabela-body-linha">
-          <td class="tabela-times-posicao" style="color:#0000ff;">1</td>
-          <td class="tabela-times-time" >Uruguai</td>
+          <td class="tabela-times-time" >{{equipe.nome_popular}}</td>
           <td class="tabela-times-variacao">0</td>
         </tr>
       </tbody>
@@ -107,6 +92,18 @@
     </div>
   </div>
   <aside class="lista-de-jogos lista-de-jogos-dentro-grupo">
-    <header></header>
+    <header>
+      <h2 class="gui-text-section-title tabela-header-titulo">JOGOS</h2>
+    </header>
+    <nav class="tabela-navegacao tabela-navegacao-jogos">
+			<span class="tabela-navegacao-setas tabela-navegacao-left" (click)="previousRodada()"><i class="fas fa-arrow-left"></i></span>
+      <span class="tabela-navegacao-seletor">0{{ rodada }}ª rodada</span>
+      <span class="tabela-navegacao-setas tabela-navegacao-right" (click)="nextRodada()"><i class="fas fa-arrow-right"></i></span>
+		</nav>
+    <ul class="lista-de-jogos-conteudo">
+      <li class="lista-de-jogos-item" *ngFor="let jogo of jogosByRodada">
+        <app-jogo [jogo]="jogo"></app-jogo>
+      </li>
+    </ul>
   </aside>
 </section>

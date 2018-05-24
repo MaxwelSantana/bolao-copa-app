@@ -1,0 +1,110 @@
+[
+  {
+    "sede_id": 1621,
+    "nome_popular": "Samara",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Samara Arena (Metallurg)"
+  },
+  {
+    "sede_id": 1842,
+    "nome_popular": "Olímpico Lujniki",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Olímpico Lujniki"
+  },
+  {
+    "sede_id": 1984,
+    "nome_popular": "Nizhny Novgorod",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Lokomotiv (N. Novgorod)"
+  },
+  {
+    "sede_id": 2663,
+    "nome_popular": "Rostov",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Rostov Arena (Olimp-2)"
+  },
+  {
+    "sede_id": 2976,
+    "nome_popular": "São Petersburgo",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Arena Zenit - Krestovsky"
+  },
+  {
+    "sede_id": 2977,
+    "nome_popular": "Arena Kazan",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Kazan Arena"
+  },
+  {
+    "sede_id": 2978,
+    "nome_popular": "Spartak",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Otkrytie Arena"
+  },
+  {
+    "sede_id": 2979,
+    "nome_popular": "Olímpico de Sochi",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Estádio Olímpico de Fisht"
+  },
+  {
+    "sede_id": 3076,
+    "nome_popular": "Volgogrado",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Volgograd Arena"
+  },
+  {
+    "sede_id": 3077,
+    "nome_popular": "Saransk",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Mordovia Arena"
+  },
+  {
+    "sede_id": 3078,
+    "nome_popular": "Kaliningrado",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Kaliningrad Stadium (Arena Baltika)"
+  },
+  {
+    "sede_id": 3079,
+    "nome_popular": "Ecaterimburgo",
+    "tipo": {
+      "tipo_id": "1",
+      "descricao": "Arena Desportiva"
+    },
+    "nome": "Ekaterinburg Arena (Central Stadium)"
+  }
+]

@@ -26,7 +26,7 @@
     position: relative;
     text-align: center;
     text-transform: uppercase;
-    line-height: 55px;
+    /*line-height: 55px;*/
 }
 
 .tabela-navegacao-fases {
@@ -72,7 +72,7 @@
         display: inline-block;
         margin-bottom: 0;
         vertical-align: top;
-        width: 68%;
+        width: 67%;
     }
 }
 
@@ -188,4 +188,187 @@
 
 .tabela-pontos td:nth-child(odd) {
     background-color: #f5f5f5;
+}
+
+/*JOGOS*/
+.lista-de-jogos {
+    position: relative;
+}
+
+@media only screen and (min-width: 64.063em) {
+    .lista-de-jogos-dentro-grupo {
+        display: inline-block;
+        vertical-align: top;
+        width: 32%;
+    }
+}
+
+@media only screen and (min-width: 40.063em) {
+    .lista-de-jogos-dentro-grupo .tabela-header-titulo {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    .lista-de-jogos-dentro-grupo .tabela-header-titulo {
+        display: none;
+    }
+
+    .lista-de-jogos .tabela-navegacao-setas, .lista-de-jogos .tabela-navegacao-seletor {
+        font-size: 16px;
+        line-height: 39px;
+    }
+}
+
+.lista-de-jogos-item {
+    border-bottom: 1px solid #e3e3e3;
+    display: list-item;
+}
+
+.placar-jogo {
+    height: 100px;
+    padding-top: 18px;
+    text-align: center;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .placar-jogo {
+        height: 109px;
+        padding-top: 24px;
+    }
+}
+
+.placar-jogo-informacoes {
+    color: #666;
+    font-family: proximanova-bold;
+    font-size: 10px;
+    letter-spacing: -.3px;
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .placar-jogo-informacoes {
+        font-size: 11px;
+    }
+}
+
+.placar-jogo-equipes {
+    color: #333;
+    display: table;
+    font-family: opensans-light;
+    font-size: 18px;
+    padding: 5px 0 4px;
+    width: 100%;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .placar-jogo-equipes {
+        padding-bottom: 7px;
+    }
+}
+
+.placar-jogo-equipes-item {
+    display: table-cell;
+    height: 40px;
+    vertical-align: middle;
+    width: 35%;
+}
+
+.placar-jogo-equipes-mandante {
+    text-align: right;
+}
+
+.placar-jogo-equipes-visitante {
+    text-align: left;
+}
+
+.placar-jogo-equipes-placar {
+    font-family: opensans-bold;
+    width: 30%;
+}
+
+@media only screen and (min-width: 64.063em) {
+    .lista-de-jogos .placar-jogo-equipes-item {
+        width: 33%;
+    }
+
+    .lista-de-jogos .placar-jogo-equipes-placar {
+        width: 34%;
+    }
+
+    .lista-de-jogos .placar-jogo-equipes-sigla {
+        display: inline-block;
+    }
+
+    .lista-de-jogos .placar-jogo-equipes-nome {
+        display: none;
+    }
+}
+
+.placar-jogo-equipes-sigla, .placar-jogo-equipes-nome {
+    line-height: 20px;
+    max-width: 68%;
+}
+
+.placar-jogo-equipes-item img, .placar-jogo-equipes-item span {
+    vertical-align: middle;
+}
+
+.placar-jogo-equipes-escudo-mandante {
+    margin-left: 8px;
+}
+
+.placar-jogo-equipes-escudo-mandante, .placar-jogo-equipes-escudo-visitante {
+    height: 30px;
+    width: 30px;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .placar-jogo-equipes-escudo-mandante {
+        margin: -5px 0 0 11px;
+    }
+}
+
+input.placar-input {
+    border: 0;
+    display: inline-block;
+    width: 28px;
+    box-shadow: inset 0 0 3px #ccc;
+    border: 1px solid #CCC;
+    vertical-align: middle;
+    text-align: center;
+}
+
+input.placar-input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input.placar-input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    display:none;
+}
+
+.tabela-icone {
+    height: 7px;
+    width: 7px;
+}
+
+.placar-jogo .tabela-icone-versus {
+    margin: 0 5px;
+}
+
+.tabela-icone-versus {
+    background: url(http://s.glbimg.com/es/ge/static/live/widget_classificacao_responsivo/img/sprite-tabela-icones.svg?3b757c5a9ee1) no-repeat left bottom;
+    background-size: 12px auto;
+    height: 6px;
+    width: 6px;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .tabela-icone-versus {
+        background-size: 19px auto;
+        height: 11px;
+        width: 9px;
+    }
 }

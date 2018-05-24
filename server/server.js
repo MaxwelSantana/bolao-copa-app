@@ -7,6 +7,12 @@ var db;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/equipes', function(req, res) {
     db.collection("equipes").find({}).toArray(function(err, result) {
         if (err) throw err;
@@ -23,6 +29,13 @@ app.get('/fases', function(req, res) {
 
 app.get('/jogos', function(req, res) {
     db.collection("jogos").find({}).toArray(function(err, result) {
+        if (err) throw err;
+        res.send(result);
+    });
+});
+
+app.get('/sedes', function(req, res) {
+    db.collection("sedes").find({}).toArray(function(err, result) {
         if (err) throw err;
         res.send(result);
     });

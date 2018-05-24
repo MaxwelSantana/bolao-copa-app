@@ -1,0 +1,13 @@
+[
+  {
+    "edicao_id": 2594,
+    "data_fim": "2018-07-15",
+    "nome": "Copa do Mundo 2018",
+    "observacao": "",
+    "slug": "copa-do-mundo-2018",
+    "regulamento": "Na fase de grupos, as 32 seleções estão divididas em 8 grupos de quatro, sendo que os dois primeiros de cada chave avançam para a próxima fase. Em caso de igualdade na pontuação, são critérios de desempate: 1) melhor saldo de gols, 2) mais gols pró, 3) confronto direto, 4) menos cartões vermelhos e amarelos , 5) sorteio. Nas oitavas, quartas, semifinal e final, os times se enfrentam em sistema mata-mata em jogo único. Em caso de empate no tempo normal, os times encaram prorrogação de 30 minutos e, persistindo a igualdade, a vaga ou o título será decidido na disputa de pênaltis.",
+    "data_inicio": "2018-06-14",
+    "campeonato_id": 65,
+    "slug_editorial": "2018"
+  }
+]
