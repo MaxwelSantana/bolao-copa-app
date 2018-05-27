@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { EventsModule } from 'angular4-events';
+import { FormsModule } from '@angular/forms';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -21,6 +22,8 @@ import { JogoEndpointService } from "./services/jogo-endpoint.service";
 import { JogoService } from "./services/jogo.service";
 import { SedeEndpointService } from "./services/sede-endpoint.service";
 import { SedeService } from "./services/sede.service";
+import { PalpiteEndpointService } from "./services/palpite-endpoint.service";
+import { PalpiteService } from "./services/palpite.service";
 
 
 @NgModule({
@@ -34,6 +37,7 @@ import { SedeService } from "./services/sede.service";
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     EventsModule.forRoot()
   ],
   providers: [
@@ -45,7 +49,9 @@ import { SedeService } from "./services/sede.service";
     JogoService, 
     JogoEndpointService,
     SedeService,
-    SedeEndpointService
+    SedeEndpointService,
+    PalpiteService,
+    PalpiteEndpointService
   ],
   bootstrap: [AppComponent]
 })

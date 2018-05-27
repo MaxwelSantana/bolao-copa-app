@@ -4,6 +4,7 @@
       <span>Fase de grupos</span>
       <span class="tabela-navegacao-setas tabela-navegacao-right"><i class="fas fa-arrow-right"></i></span>
 		</nav>
+    <button type="button" (click)="savePalpites()">SALVAR</button>
     <div class="container-fases">
       <app-grupo *ngFor="let grupo of faseAtual?.grupos" [grupo]="grupo"></app-grupo>
     </div>

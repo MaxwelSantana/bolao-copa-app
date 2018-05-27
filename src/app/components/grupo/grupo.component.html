@@ -15,8 +15,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let equipe of equipes" class="tabela-body-linha">
-          <td class="tabela-times-posicao" style="color:#0000ff;">1</td>
+        <tr *ngFor="let equipe of equipes; index as i" class="tabela-body-linha">
+          <td class="tabela-times-posicao" style="color:#0000ff;">{{i+1}}</td>
           <td class="tabela-times-time" >{{equipe.nome_popular}}</td>
           <td class="tabela-times-variacao">0</td>
         </tr>
@@ -39,51 +39,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="tabela-body-linha">
-            <td class="tabela-pontos-ponto">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0.0</td>
-            <td class="tabela-pontos-ultimos-jogos"></td>
-          </tr>
-          <tr class="tabela-body-linha">
-            <td class="tabela-pontos-ponto">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0.0</td>
-            <td class="tabela-pontos-ultimos-jogos"></td>
-          </tr>
-          <tr class="tabela-body-linha">
-            <td class="tabela-pontos-ponto">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0.0</td>
-            <td class="tabela-pontos-ultimos-jogos"></td>
-          </tr>
-          <tr class="tabela-body-linha">
-            <td class="tabela-pontos-ponto">0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
+          <tr class="tabela-body-linha" *ngFor="let equipe of equipes">
+            <td class="tabela-pontos-ponto">{{getPontos(equipe)}}</td>
+            <td>{{equipe.pontuacao?.jogos}}</td>
+            <td>{{equipe.pontuacao?.vitorias}}</td>
+            <td>{{equipe.pontuacao?.empates}}</td>
+            <td>{{equipe.pontuacao?.derrotas}}</td>
+            <td>{{equipe.pontuacao?.gols_pro}}</td>
+            <td>{{equipe.pontuacao?.gols_contra}}</td>
+            <td>{{getSaldoGols(equipe)}}</td>
             <td>0.0</td>
             <td class="tabela-pontos-ultimos-jogos"></td>
           </tr>
