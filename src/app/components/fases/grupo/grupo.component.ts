@@ -1,9 +1,9 @@
 import { Component, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
-import { EquipeService } from "../../services/equipe.service";
+import { EquipeService } from "../../../services/equipe.service";
 import { EventsService } from "angular4-events/esm/src";
-import { JogoService } from "../../services/jogo.service";
+import { JogoService } from "../../../services/jogo.service";
 import * as moment from 'moment';
-import { PalpiteService } from "../../services/palpite.service";
+import { PalpiteService } from "../../../services/palpite.service";
 
 @Component({
   selector: 'app-grupo',

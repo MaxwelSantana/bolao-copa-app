@@ -6,6 +6,7 @@ import { EventsService } from "angular4-events/esm/src";
 export class JogoService {
 
   jogos: any[] = [];
+  jogosModificados: any[] = [];
 
   constructor(private jogoEndpointService: JogoEndpointService, private events: EventsService) { }
 
@@ -20,4 +21,23 @@ export class JogoService {
     return this.jogos.filter(jogo => jogo.grupo_id == idGrupo);
   }
 
+  getJogos() {
+    return this.jogos;
+  }
+
+  jogoModificado(jogo) {
+    let jogoJaModificado = this.jogosModificados.find(j => j._id == jogo._id);
+    jogo.finalizado = true;
+    if(jogoJaModificado) {
+      Object.assign(jogoJaModificado, jogo);
+    } else {
+      this.jogosModificados.push(jogo);
+    }
+  }
+
+  updateJogosModificados() {
+    this.jogoEndpointService.updateJogos(this.jogosModificados).subscribe(() => {
+      this.jogosModificados = [];
+    });
+  }
 }

@@ -41,7 +41,11 @@ export class PalpiteService {
   }
 
   savePalpites() {
-    this.palpiteEndpointService.saveMany(this.palpitesByUsuario)
+    let palpitesAlterados = this.palpitesByUsuario.filter(palpite => palpite.alterado);
+    
+    palpitesAlterados.forEach((palpite) => palpite.alterado = false );
+    
+    this.palpiteEndpointService.saveMany(palpitesAlterados)
       .subscribe((palpites) => {
         this.loadPalpites();
       });

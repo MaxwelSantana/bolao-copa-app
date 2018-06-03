@@ -2,6 +2,8 @@ import { Component, OnInit, Input , AfterContentInit} from '@angular/core';
 import { SedeService } from "../../services/sede.service";
 import { PalpiteService } from "../../services/palpite.service";
 import { EventsService } from "angular4-events/esm/src";
+import { JogoService } from "../../services/jogo.service";
+import { EquipeService } from "../../services/equipe.service";
 
 @Component({
   selector: 'app-jogo',
@@ -17,29 +19,24 @@ export class JogoComponent implements AfterContentInit {
     placar_visitante: 0
   };
 
-  constructor(private sedeService: SedeService, private palpiteService: PalpiteService, private events: EventsService) { }
+  placarOficial = false;
+
+  constructor(private sedeService: SedeService, private equipeService: EquipeService, private palpiteService: PalpiteService, private jogoService: JogoService,
+    private events: EventsService, private pubsub: EventsService) { }
 
   ngAfterContentInit() {
-    /*
-    Object.assign(this.palpite, 
-      this.palpiteService.getPalpiteByUsuarioAndJogo(this.jogo.jogo_id),
-      {
-        equipe_mandante_id: this.jogo.equipe_mandante_id, 
-        equipe_visitante_id: this.jogo.equipe_visitante_id,
-        grupo_id: this.jogo.grupo_id
-      }); */
       this.palpite = this.palpiteService.getPalpiteByUsuarioAndJogo(this.jogo.jogo_id);
       this.palpite.equipe_mandante_id = this.jogo.equipe_mandante_id, 
       this.palpite.equipe_visitante_id = this.jogo.equipe_visitante_id,
       this.palpite.grupo_id = this.jogo.grupo_id
+
+      this.pubsub.subscribe('placarOficialMode', (placarOficial) => {
+        this.placarOficial = placarOficial;
+      });
   }
 
   get sede() {
     return this.sedeService.getSedeById(this.jogo.sede_id);
-  }
-
-  teste() {
-    console.log(this.jogo.jogo_id, this.palpite, this.palpiteService.getPalpitesByUsuario());
   }
 
   partidaFinalizada() {
@@ -49,5 +46,13 @@ export class JogoComponent implements AfterContentInit {
   palpiteAlterado() {
     this.palpite.alterado = true;
     this.events.publish('palpiteAlterado', this.palpite);
+  }
+
+  finalizarJogo() {
+    this.jogoService.jogoModificado(this.jogo);
+  }
+
+  getEquipe(idEquipe) {
+    return this.equipeService.getEquipe(idEquipe);
   }
 }

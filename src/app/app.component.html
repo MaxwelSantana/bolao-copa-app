@@ -1,4 +1,24 @@
 <app-header></app-header>
 <div class="content">
-  <app-fases></app-fases>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+<nav class="regua-navegacao">
+  <div class="regua-navegacao-container">
+    <ul class="regua-lista">
+      <li class="regua-navegacao-item" routerLinkActive="active">
+        <a [routerLink]="['/classificacao']"><i class="far fa-list-alt"></i></a>
+      </li>
+      <li class="regua-navegacao-item" routerLinkActive="active">
+        <a [routerLink]="['/fases']"><i class="fas fa-futbol"></i></a>
+      </li>
+      <li class="regua-navegacao-item" routerLinkActive="active">
+        <a [routerLink]="['/proximos-jogos']"><i class="far fa-clock"></i></a>
+      </li>
+      <li class="regua-navegacao-item" routerLinkActive="active">
+        <a [routerLink]="['/account']"><i class="far fa-user"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>

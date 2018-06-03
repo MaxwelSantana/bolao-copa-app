@@ -11,14 +11,15 @@
       </colgroup>
       <thead>
         <tr class="tabela-head-linha">
-          <th class="tabela-times-head" colspan="3">Classificação</th>
+          <th class="tabela-times-head" colspan="2">Classificação</th>
+          <th class="tabela-times-head" colspan="1">P</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let equipe of equipes; index as i" class="tabela-body-linha">
           <td class="tabela-times-posicao" style="color:#0000ff;">{{i+1}}</td>
           <td class="tabela-times-time" >{{equipe.nome_popular}}</td>
-          <td class="tabela-times-variacao">0</td>
+          <td class="tabela-pontos-ponto">{{getPontos(equipe)}}</td>
         </tr>
       </tbody>
     </table>
@@ -26,7 +27,6 @@
       <table class="tabela-pontos">
         <thead>
           <tr class="tabela-head-linha">
-            <th>P</th>
             <th>J</th>
             <th>V</th>
             <th>E</th>
@@ -34,13 +34,10 @@
             <th class="tabela-pontos-th-duplo">GP</th>
             <th class="tabela-pontos-th-duplo">GC</th>
             <th class="tabela-pontos-th-duplo">SG</th>
-            <th>%</th>
-            <th class="tabela-pontos-th-longo">ÚLT. JOGOS</th>
           </tr>
         </thead>
         <tbody>
           <tr class="tabela-body-linha" *ngFor="let equipe of equipes">
-            <td class="tabela-pontos-ponto">{{getPontos(equipe)}}</td>
             <td>{{equipe.pontuacao?.jogos}}</td>
             <td>{{equipe.pontuacao?.vitorias}}</td>
             <td>{{equipe.pontuacao?.empates}}</td>
@@ -48,8 +45,6 @@
             <td>{{equipe.pontuacao?.gols_pro}}</td>
             <td>{{equipe.pontuacao?.gols_contra}}</td>
             <td>{{getSaldoGols(equipe)}}</td>
-            <td>0.0</td>
-            <td class="tabela-pontos-ultimos-jogos"></td>
           </tr>
         </tbody>
       </table>

@@ -10,10 +10,10 @@
     display: block;
     max-width: 1075px;
     margin: 0 auto !important;
-    padding: 10px 0;
+    padding: 10px 0 48px 0;
 }
 
-.corpo-simulador {
+.main-content {
     padding: 20px;
 }
 
@@ -84,6 +84,10 @@
     table-layout: fixed;
     width: 140px;
     z-index: 10;
+}
+
+.tabela-com-jogos-por-grupo {
+    margin-bottom: 29px;
 }
 
 @media only screen and (min-width: 62.5625em) {
@@ -288,6 +292,10 @@
     width: 30%;
 }
 
+.lista-de-jogos-conteudo {
+    list-style: none;
+}
+
 @media only screen and (min-width: 64.063em) {
     .lista-de-jogos .placar-jogo-equipes-item {
         width: 33%;
@@ -370,5 +378,28 @@ input.placar-input[type=number]::-webkit-inner-spin-button {
         background-size: 19px auto;
         height: 11px;
         width: 9px;
+    }
+}
+
+
+/****************************************************************/
+@media only screen and (max-width: 765px) {
+    .tabela-header-titulo {
+        font-size: 20px;
+    }
+
+    .tabela-scroll {
+        padding-left: 140px;
+        margin-right: -10px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .placar-jogo-equipes-nome {
+        display: none;
+    }
+
+    .tabela-com-jogos-por-grupo {
+        margin-bottom: 21px;
     }
 }

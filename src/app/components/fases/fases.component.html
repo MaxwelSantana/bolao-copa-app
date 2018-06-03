@@ -5,6 +5,12 @@
       <span class="tabela-navegacao-setas tabela-navegacao-right"><i class="fas fa-arrow-right"></i></span>
 		</nav>
     <button type="button" (click)="savePalpites()">SALVAR</button>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" data-toggle="toggle" [(ngModel)]="placarOficial" (ngModelChange)="placarOficialMode()">
+        Option one is enabled
+      </label>
+    </div>
     <div class="container-fases">
       <app-grupo *ngFor="let grupo of faseAtual?.grupos" [grupo]="grupo"></app-grupo>
     </div>

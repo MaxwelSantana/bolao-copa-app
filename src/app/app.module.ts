@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from '@angular/router';
 import { EventsModule } from 'angular4-events';
 import { FormsModule } from '@angular/forms';
 
@@ -8,9 +9,10 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
+import { ROUTES } from "./app.routes";
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/shared/header/header.component';
-import { GrupoComponent } from './components/grupo/grupo.component';
+import { GrupoComponent } from './components/fases/grupo/grupo.component';
 import { FasesComponent } from './components/fases/fases.component';
 import { JogoComponent } from './components/jogo/jogo.component';
 
@@ -24,6 +26,10 @@ import { SedeEndpointService } from "./services/sede-endpoint.service";
 import { SedeService } from "./services/sede.service";
 import { PalpiteEndpointService } from "./services/palpite-endpoint.service";
 import { PalpiteService } from "./services/palpite.service";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { ClassificacaoComponent } from './components/classificacao/classificacao.component';
+import { ProximosJogosComponent } from './components/proximos-jogos/proximos-jogos.component';
 
 
 @NgModule({
@@ -32,13 +38,17 @@ import { PalpiteService } from "./services/palpite.service";
     HeaderComponent,
     GrupoComponent,
     FasesComponent,
-    JogoComponent
+    JogoComponent,
+    ClassificacaoComponent,
+    ProximosJogosComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    EventsModule.forRoot()
+    RouterModule.forRoot(ROUTES),
+    EventsModule.forRoot(),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },

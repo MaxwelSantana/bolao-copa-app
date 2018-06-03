@@ -13,9 +13,11 @@ import { PalpiteService } from "../../services/palpite.service";
 export class FasesComponent implements OnInit {
   
   indexFase = 0;
+  placarOficial = false;
 
   constructor(private faseService: FaseService, private equipeService: EquipeService, 
-    private jogoService: JogoService, private sedeService: SedeService, private palpiteService: PalpiteService, private pubsub: EventsService) { }
+    private jogoService: JogoService, private sedeService: SedeService, 
+    private palpiteService: PalpiteService, private pubsub: EventsService,  private events: EventsService) { }
 
   ngOnInit() {
     this.faseService.loadFases();
@@ -37,7 +39,14 @@ export class FasesComponent implements OnInit {
   }
 
   savePalpites() {
-    this.palpiteService.savePalpites();
+    if(this.placarOficial) {
+      this.jogoService.updateJogosModificados();
+    } else {
+      this.palpiteService.savePalpites();
+    }
   }
 
+  placarOficialMode() {
+    this.events.publish('placarOficialMode', this.placarOficial);
+  }
 }

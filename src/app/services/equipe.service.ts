@@ -20,6 +20,10 @@ export class EquipeService {
       return this.equipes;
   }
 
+  getEquipe(id) {
+    return this.equipes.find(equipe => equipe.equipe_id == id);
+  }
+
   getEquipesByIds(ids: number[]) {
     return this.equipes.filter(equipe => ids.some(id => equipe.equipe_id == id));
   }

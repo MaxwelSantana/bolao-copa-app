@@ -37,6 +37,57 @@ app.get('/jogos', function(req, res) {
     });
 });
 
+app.put('/jogos', function(req, res) {
+    const jogos = req.body;
+    const jogoIds = jogos.map(j => j.jogo_id);
+    const filterPalpites = {jogo_id: {$in: jogoIds}};
+
+    let callback = (err, result) => {   
+        if (err) return console.log(err)
+        console.log("result");
+        return "result"
+    };
+
+    let done = (err, results) => {
+        if (err) throw err
+        res.send('null');
+        res.status(204).end();
+    };
+
+    db.collection("palpites").find(filterPalpites).toArray((err, palpites) => {
+        if (err) throw err;
+        
+        async.map(jogos, function(jogo, callback) {
+            let palpitesByJogo = palpites.filter(p => p.jogo_id == jogo.jogo_id);
+            //return callback(null, null);
+            db.collection('jogos').save(Object.assign(jogo, { _id: ObjectId(jogo._id)}), function(err, result) {
+                return async.map(palpitesByJogo, function(palpite, callback) {
+                    let placar_correto = false;
+                    let resultado_correto = false;
+                    let resultado_errado = false;
+                    
+                    if(palpite.placar_mandante == jogo.placar_oficial_mandante && palpite.placar_visitante == jogo.placar_oficial_visitante) {
+                        placar_correto = true;
+                    } else if( jogo.placar_oficial_mandante > jogo.placar_oficial_visitante && palpite.placar_mandante > palpite.placar_visitante 
+                        || jogo.placar_oficial_mandante < jogo.placar_oficial_visitante && palpite.placar_mandante < palpite.placar_visitante 
+                        || jogo.placar_oficial_mandante == jogo.placar_oficial_visitante && palpite.placar_mandante == palpite.placar_visitante ) {
+                        resultado_correto = true;
+                    } else {
+                        resultado_errado = true;
+                    }
+
+                    Object.assign(palpite, { placar_correto, resultado_correto, resultado_errado });
+
+                    return db.collection('palpites').save(palpite, callback);
+                }, callback);
+            });
+        }, done);
+
+    });
+
+    
+});
+
 app.get('/sedes', function(req, res) {
     db.collection("sedes").find({}).toArray(function(err, result) {
         if (err) throw err;

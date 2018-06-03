@@ -12,5 +12,9 @@ export class JogoEndpointService {
   getJogos(): Observable<any> {
     return this.http.get(this.jogoUrl);
   }
+
+  updateJogos(jogos: any[]): Observable<any> {
+    return this.http.put(this.jogoUrl, jogos);
+  }
     
 }
