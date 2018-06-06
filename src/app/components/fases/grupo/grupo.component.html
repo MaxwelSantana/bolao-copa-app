@@ -55,9 +55,9 @@
       <h2 class="gui-text-section-title tabela-header-titulo">JOGOS</h2>
     </header>
     <nav class="tabela-navegacao tabela-navegacao-jogos">
-			<span class="tabela-navegacao-setas tabela-navegacao-left" (click)="previousRodada()"><i class="fas fa-arrow-left"></i></span>
+			<span class="tabela-navegacao-setas tabela-navegacao-left" [class.tabela-navegacao-setas-ativa]="canPreviousRodada()" (click)="previousRodada()"><i class="fas fa-arrow-left"></i></span>
       <span class="tabela-navegacao-seletor">0{{ rodada }}ª rodada</span>
-      <span class="tabela-navegacao-setas tabela-navegacao-right" (click)="nextRodada()"><i class="fas fa-arrow-right"></i></span>
+      <span class="tabela-navegacao-setas tabela-navegacao-right" [class.tabela-navegacao-setas-ativa]="canNextRodada()" (click)="nextRodada()"><i class="fas fa-arrow-right"></i></span>
 		</nav>
     <ul class="lista-de-jogos-conteudo">
       <li class="lista-de-jogos-item" *ngFor="let jogo of jogosByRodada">

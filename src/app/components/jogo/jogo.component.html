@@ -1,10 +1,10 @@
 <div class="placar-jogo" [ngSwitch]="placarOficial">
-  <div class="placar-jogo-informacoes">{{ jogo.data_realizacao | date:'EEE dd/MM/yyyy':'pt-br' }} <span class="placar-jogo-informacoes-local">{{sede?.nome_popular}}</span> {{ jogo.hora_realizacao.substr(0,5) }}</div>
+  <div class="placar-jogo-informacoes">{{ jogo.data_realizacao | date:'EEE dd/MM/yyyy':'pt-br' }} <span class="placar-jogo-informacoes-local">{{sede?.nome_popular}}</span> {{ jogo.hora_realizacao?.substr(0,5) }}</div>
   <div class="placar-jogo-equipes">
     <span class="placar-jogo-equipes-item placar-jogo-equipes-mandante">
       <span class="placar-jogo-equipes-sigla " [title]="getEquipe(jogo.equipe_mandante_id)?.nome_popular">{{getEquipe(jogo.equipe_mandante_id)?.sigla}}</span>
       <span class="placar-jogo-equipes-nome ">{{getEquipe(jogo.equipe_mandante_id)?.nome_popular}}</span>
-      <img class="placar-jogo-equipes-escudo-mandante" [src]="getEquipe(jogo.equipe_mandante_id)?.escudos['30x30']" width="30" height="30" [title]="getEquipe(jogo.equipe_mandante_id)?.nome_popular">
+      <img class="placar-jogo-equipes-escudo-mandante" [src]="getEscudo(jogo.equipe_mandante_id)" width="30" height="30" [title]="getEquipe(jogo.equipe_mandante_id)?.nome_popular">
     </span>
     <span class="placar-jogo-equipes-item placar-jogo-equipes-placar" *ngSwitchCase="true"> 
       <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_mandante" min="0" max="19" [(ngModel)]="jogo.placar_oficial_mandante" (ngModelChange)="finalizarJogo()">
@@ -17,7 +17,7 @@
       <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_visitante" min="0" max="19" [(ngModel)]="palpite.placar_visitante" [disabled]="partidaFinalizada()" (ngModelChange)="palpiteAlterado()">
     </span>
     <span class="placar-jogo-equipes-item placar-jogo-equipes-visitante">
-      <img class="placar-jogo-equipes-escudo-visitante" [src]="getEquipe(jogo.equipe_visitante_id)?.escudos['30x30']" width="30" height="30" [title]="getEquipe(jogo.equipe_visitante_id)?.nome_popular">
+      <img class="placar-jogo-equipes-escudo-visitante" [src]="getEscudo(jogo.equipe_visitante_id)" width="30" height="30" [title]="getEquipe(jogo.equipe_visitante_id)?.nome_popular">
       <span class="placar-jogo-equipes-sigla " [title]="getEquipe(jogo.equipe_visitante_id)?.nome_popular">{{getEquipe(jogo.equipe_visitante_id)?.sigla}}</span>
       <span class="placar-jogo-equipes-nome ">{{getEquipe(jogo.equipe_visitante_id)?.nome_popular}}</span>
     </span>

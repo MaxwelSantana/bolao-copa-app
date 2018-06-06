@@ -1,8 +1,8 @@
 <div class="corpo-simulador">
     <nav class="tabela-navegacao tabela-navegacao-fases">
-			<span class="tabela-navegacao-setas tabela-navegacao-left"><i class="fas fa-arrow-left"></i></span>
-      <span>Fase de grupos</span>
-      <span class="tabela-navegacao-setas tabela-navegacao-right"><i class="fas fa-arrow-right"></i></span>
+			<span class="tabela-navegacao-setas tabela-navegacao-left" [class.tabela-navegacao-setas-ativa]="canPrevFase()" (click)="prevFase()"><i class="fas fa-arrow-left"></i></span>
+      <span>{{faseAtual?.nome}}</span>
+      <span class="tabela-navegacao-setas tabela-navegacao-right" [class.tabela-navegacao-setas-ativa]="canNextFase()" (click)="nextFase()"><i class="fas fa-arrow-right"></i></span>
 		</nav>
     <button type="button" (click)="savePalpites()">SALVAR</button>
     <div class="checkbox">
@@ -12,6 +12,17 @@
       </label>
     </div>
     <div class="container-fases">
-      <app-grupo *ngFor="let grupo of faseAtual?.grupos" [grupo]="grupo"></app-grupo>
+      <div *ngIf="faseAtual?.tipo.tipo_id == 3">
+        <app-grupo *ngFor="let grupo of faseAtual?.grupos" [grupo]="grupo"></app-grupo>
+      </div>
+      <div *ngIf="faseAtual?.tipo.tipo_id == 2">
+        <section class="section-container">
+          <header><h2 class="gui-text-section-title tabela-header-titulo">CONFRONTOS</h2></header>
+          <div class="chave-jogo" *ngFor="let chave of faseAtual?.chaves">
+            <app-jogo [jogo]="getJogo(chave?.jogo_1.jogo_id)"></app-jogo>
+            <div class="chave-jogo-separador"><div class="chave-jogo-nome-centralizador"><span class="chave-jogo-nome">{{chave.nome}}</span></div></div>
+          </div>
+        </section>
+      </div>
     </div>
 </div>

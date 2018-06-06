@@ -26,7 +26,7 @@ export class PalpiteService {
     if(jogo) {
       return jogo;
     } else {
-      this.palpitesByUsuario.push({ usuario_id: this.usuarioId, jogo_id : jogoId, placar_mandante: 0, placar_visitante: 0});
+      this.palpitesByUsuario.push({ usuario_id: this.usuarioId, jogo_id : jogoId, placar_mandante: "-", placar_visitante: "-"});
       return this.palpitesByUsuario.find(palpite => palpite.jogo_id == jogoId);
     }
       

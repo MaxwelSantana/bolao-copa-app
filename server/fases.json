@@ -118,8 +118,8 @@
     "data_inicio": "2018-06-29",
     "atual": false,
     "disclaimer": "",
-    "chaves": {
-      "59187": {
+    "chaves": [
+      {
         "chave_anterior_id": null,
         "ordem": 1,
         "jogo_1": {
@@ -146,7 +146,7 @@
           "label": "2º B"
         }
       },
-      "59188": {
+      {
         "chave_anterior_id": null,
         "ordem": 2,
         "jogo_1": {
@@ -173,7 +173,7 @@
           "label": "2º D"
         }
       },
-      "59189": {
+      {
         "chave_anterior_id": null,
         "ordem": 3,
         "jogo_1": {
@@ -200,7 +200,7 @@
           "label": "2º F"
         }
       },
-      "59190": {
+      {
         "chave_anterior_id": null,
         "ordem": 4,
         "jogo_1": {
@@ -227,7 +227,7 @@
           "label": "2º H"
         }
       },
-      "59191": {
+      {
         "chave_anterior_id": null,
         "ordem": 5,
         "jogo_1": {
@@ -254,7 +254,7 @@
           "label": "2º A"
         }
       },
-      "59192": {
+      {
         "chave_anterior_id": null,
         "ordem": 6,
         "jogo_1": {
@@ -281,7 +281,7 @@
           "label": "2º C"
         }
       },
-      "59193": {
+      {
         "chave_anterior_id": null,
         "ordem": 7,
         "jogo_1": {
@@ -308,7 +308,7 @@
           "label": "2º E"
         }
       },
-      "59194": {
+      {
         "chave_anterior_id": null,
         "ordem": 8,
         "jogo_1": {
@@ -335,7 +335,7 @@
           "label": "2º G"
         }
       }
-    }
+    ]
   },
   {
     "fase_id": 5364,
@@ -355,8 +355,8 @@
     "data_inicio": "2018-07-04",
     "atual": false,
     "disclaimer": "",
-    "chaves": {
-      "59195": {
+    "chaves": [
+      {
         "chave_anterior_id": [
           59187,
           59188
@@ -386,7 +386,7 @@
           "label": "Venc. Oitavas 2"
         }
       },
-      "59196": {
+      {
         "chave_anterior_id": [
           59189,
           59190
@@ -416,7 +416,7 @@
           "label": "Venc. Oitavas 4"
         }
       },
-      "59197": {
+      {
         "chave_anterior_id": [
           59191,
           59192
@@ -446,7 +446,7 @@
           "label": "Venc. Oitavas 6"
         }
       },
-      "59198": {
+      {
         "chave_anterior_id": [
           59193,
           59194
@@ -476,7 +476,7 @@
           "label": "Venc. Oitavas 8"
         }
       }
-    }
+    ]
   },
   {
     "fase_id": 5365,
@@ -496,8 +496,8 @@
     "data_inicio": "2018-07-08",
     "atual": false,
     "disclaimer": "",
-    "chaves": {
-      "59199": {
+    "chaves": [
+      {
         "chave_anterior_id": [
           59195,
           59196
@@ -527,7 +527,7 @@
           "label": "Venc. Quartas 2"
         }
       },
-      "59200": {
+      {
         "chave_anterior_id": [
           59197,
           59198
@@ -557,7 +557,7 @@
           "label": "Venc. Quartas 4"
         }
       }
-    }
+    ]
   },
   {
     "fase_id": 5366,
@@ -577,8 +577,8 @@
     "data_inicio": "2018-07-12",
     "atual": false,
     "disclaimer": "",
-    "chaves": {
-      "59201": {
+    "chaves": [
+      {
         "chave_anterior_id": [
           59199,
           59200
@@ -608,7 +608,7 @@
           "label": "Venc. Semifinal 2"
         }
       }
-    }
+    ]
   },
   {
     "fase_id": 5473,
@@ -628,8 +628,8 @@
     "data_inicio": "2018-07-12",
     "atual": false,
     "disclaimer": "",
-    "chaves": {
-      "59375": {
+    "chaves": [
+      {
         "chave_anterior_id": null,
         "ordem": 1,
         "jogo_1": {
@@ -656,6 +656,6 @@
           "label": "Perd. Semifinal 2"
         }
       }
-    }
+    ]
   }
 ]

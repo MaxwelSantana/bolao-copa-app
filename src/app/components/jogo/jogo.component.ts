@@ -55,4 +55,11 @@ export class JogoComponent implements AfterContentInit {
   getEquipe(idEquipe) {
     return this.equipeService.getEquipe(idEquipe);
   }
+
+  getEscudo(idEquipe) {
+    let equipe = this.getEquipe(idEquipe);
+    if(!equipe || !equipe.escudos['30x30'])
+      return "http://s.glbimg.com/es/sde/f/organizacoes/escudo_default_30x30.png";
+    return equipe.escudos['30x30'];
+  }
 }

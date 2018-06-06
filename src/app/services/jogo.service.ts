@@ -25,6 +25,10 @@ export class JogoService {
     return this.jogos;
   }
 
+  getJogo(idJogo) {
+    return this.jogos.find(jogo => jogo.jogo_id == idJogo);
+  }
+
   jogoModificado(jogo) {
     let jogoJaModificado = this.jogosModificados.find(j => j._id == jogo._id);
     jogo.finalizado = true;

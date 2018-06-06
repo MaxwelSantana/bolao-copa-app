@@ -38,6 +38,10 @@
     color: #ccc;
     position: absolute;
     top: 0;
+}
+
+.tabela-navegacao-setas-ativa {
+    color: #3b9c00;
     cursor: pointer;
 }
 
@@ -381,7 +385,6 @@ input.placar-input[type=number]::-webkit-inner-spin-button {
     }
 }
 
-
 /****************************************************************/
 @media only screen and (max-width: 765px) {
     .tabela-header-titulo {
@@ -401,5 +404,51 @@ input.placar-input[type=number]::-webkit-inner-spin-button {
 
     .tabela-com-jogos-por-grupo {
         margin-bottom: 21px;
+    }
+}
+
+.chave-jogo {
+    background-color: #fcfcfc;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.chave-jogo-separador {
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.chave-jogo-nome-centralizador {
+    left: 50%;
+    position: absolute;
+    top: -11px;
+}
+
+.chave-jogo-nome {
+    background-color: #fcfcfc;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    color: #999;
+    display: inline-block;
+    font-family: opensans-regular;
+    font-size: 9px;
+    line-height: 14px;
+    margin-left: -50%;
+    padding: 0 14px;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .chave-jogo-nome {
+        font-size: 11px;
+        line-height: 18px;
     }
 }

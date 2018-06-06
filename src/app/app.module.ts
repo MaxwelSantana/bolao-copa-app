@@ -30,6 +30,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ClassificacaoComponent } from './components/classificacao/classificacao.component';
 import { ProximosJogosComponent } from './components/proximos-jogos/proximos-jogos.component';
+import { ChaveComponent } from './components/fases/chave/chave.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ProximosJogosComponent } from './components/proximos-jogos/proximos-jog
     FasesComponent,
     JogoComponent,
     ClassificacaoComponent,
-    ProximosJogosComponent
+    ProximosJogosComponent,
+    ChaveComponent
   ],
   imports: [
     BrowserModule,

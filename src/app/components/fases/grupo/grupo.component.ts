@@ -36,6 +36,9 @@ export class GrupoComponent implements OnInit {
     private palpiteService: PalpiteService, private pubsub: EventsService) { }
 
   ngOnInit(): void {
+      this.setJogosByGrupo();
+      this.setEquipesByGrupo();
+      
       this.pubsub.subscribe('jogosLoaded').subscribe(() => {
         this.setJogosByGrupo();
       });
@@ -162,19 +165,27 @@ export class GrupoComponent implements OnInit {
   }
 
   nextRodada() {
-    if(this.rodada < this.maxRodadas) {
+    if(this.canNextRodada()) {
       this.indiceInicial += 2;
       this.indiceFinal += 2;
       this.rodada++;
     }
   }
 
+  canNextRodada() {
+    return this.rodada < this.maxRodadas;
+  }
+
   previousRodada() {
-    if(this.rodada > this.minRodadas) {
+    if(this.canPreviousRodada()) {
       this.indiceInicial -= 2;
       this.indiceFinal -= 2;
       this.rodada--;
     }
+  }
+
+  canPreviousRodada() {
+    return this.rodada > this.minRodadas;
   }
 
   get jogosByRodada() {

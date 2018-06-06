@@ -38,6 +38,10 @@ export class FasesComponent implements OnInit {
     return this.fases[this.indexFase];
   }
 
+  getJogo(idJogo) {
+    return this.jogoService.getJogo(idJogo);
+  }
+
   savePalpites() {
     if(this.placarOficial) {
       this.jogoService.updateJogosModificados();
@@ -48,5 +52,23 @@ export class FasesComponent implements OnInit {
 
   placarOficialMode() {
     this.events.publish('placarOficialMode', this.placarOficial);
+  }
+
+  nextFase() {
+    if(this.canNextFase())
+      this.indexFase++;
+  }
+
+  prevFase() {
+    if(this.canPrevFase())
+      this.indexFase--;
+  }
+
+  canPrevFase() {
+    return this.indexFase != 0;
+  }
+
+  canNextFase() {
+    return this.indexFase < this.fases.length - 1;
   }
 }
