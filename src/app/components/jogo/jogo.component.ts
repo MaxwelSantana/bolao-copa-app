@@ -62,4 +62,10 @@ export class JogoComponent implements AfterContentInit {
       return "http://s.glbimg.com/es/sde/f/organizacoes/escudo_default_30x30.png";
     return equipe.escudos['30x30'];
   }
+
+  jogoEmpatado(placar_oficial_mandante, placar_oficial_visitante) {
+    if(!placar_oficial_mandante || !placar_oficial_visitante)
+      return false;
+    return placar_oficial_mandante === placar_oficial_visitante;
+  }
 }

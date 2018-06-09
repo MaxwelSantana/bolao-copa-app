@@ -15,6 +15,11 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { GrupoComponent } from './components/fases/grupo/grupo.component';
 import { FasesComponent } from './components/fases/fases.component';
 import { JogoComponent } from './components/jogo/jogo.component';
+import { ClassificacaoComponent } from './components/classificacao/classificacao.component';
+import { ProximosJogosComponent } from './components/proximos-jogos/proximos-jogos.component';
+import { ChaveComponent } from './components/fases/chave/chave.component';
+import { LoginComponent } from './components/account/login/login.component';
+import { RegisterComponent } from "./components/account/register/register.component";
 
 import { FaseService } from './services/fase.service';
 import { FaseEndpointService } from './services/fase-endpoint.service';
@@ -26,11 +31,11 @@ import { SedeEndpointService } from "./services/sede-endpoint.service";
 import { SedeService } from "./services/sede.service";
 import { PalpiteEndpointService } from "./services/palpite-endpoint.service";
 import { PalpiteService } from "./services/palpite.service";
+import { AuthenticationService } from "./services/authentication.service";
+import { AuthGuard } from "./services/auth-guard.service";
+
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { ClassificacaoComponent } from './components/classificacao/classificacao.component';
-import { ProximosJogosComponent } from './components/proximos-jogos/proximos-jogos.component';
-import { ChaveComponent } from './components/fases/chave/chave.component';
 
 
 @NgModule({
@@ -42,7 +47,9 @@ import { ChaveComponent } from './components/fases/chave/chave.component';
     JogoComponent,
     ClassificacaoComponent,
     ProximosJogosComponent,
-    ChaveComponent
+    ChaveComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +61,8 @@ import { ChaveComponent } from './components/fases/chave/chave.component';
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },
+    AuthenticationService,
+    AuthGuard,
     FaseService, 
     FaseEndpointService, 
     EquipeService, 

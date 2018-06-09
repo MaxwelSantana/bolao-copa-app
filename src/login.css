@@ -1,0 +1,105 @@
+.login-header {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.dynamic-window-sized {
+    max-width: 301px;
+    width: 87%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container .social-login-container {
+    margin: auto;
+    text-align: center;
+}
+
+.form-fields-container {
+    width: 100%;
+    margin: auto;
+}
+
+.form-fields-container .field {
+    margin: 0 0 16px;
+}
+
+.form-fields-container label {
+    font-family: opensans-regular,helvetica,arial,sans-serif;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.form-fields-container input {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: opensans-regular,helvetica,arial,sans-serif;
+    font-size: 1em;
+    border: 1px solid #d5d5d5;
+    border-top: 1px solid #aaa;
+    width: 100%;
+    height: 40px;
+    padding: 10px 8px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-fields-container input:required {
+    box-shadow: none;
+}
+
+.form-container .actions {
+    display: block;
+    margin: 0;
+    color: #999;
+    text-align: center;
+}
+
+.actions .button {
+    background-color: #0669de;
+    width: 100%;
+    font-size: 1em;
+    padding: 0 8px;
+    font-size: .875em;
+    color: #fff;
+    padding: .75em;
+    border: 0;
+    heigth: 42px;
+    -webkit-box-shadow: inset 0 -2px rgba(0,0,0,.25);
+    -moz-box-shadow: inset 0 -2px rgba(0,0,0,.25);
+    box-shadow: inset 0 -2px rgba(0,0,0,.25);
+    margin: auto;
+    display: inline-block;
+    cursor: pointer;
+    font-family: proximanova-bold-limited,helvetica,arial,sans-serif;
+    text-transform: uppercase;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.actions .button:disabled {
+    border: 1px solid #d5d5d5;
+    background: #f5f5f5;
+    color: #d5d5d5;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.actions button {
+    margin-bottom: 24px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.mensagem-cadastro, .mensagem-entre {
+    margin: 10px 0;
+}

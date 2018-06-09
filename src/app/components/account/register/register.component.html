@@ -1,0 +1,29 @@
+<div class="form-container dynamic-window-sized">
+    <header class="login-header">
+        <h2>CADASTRO</h2>
+    </header>
+    <div class="social-login-container"></div>
+    <form class="form-fields-container">
+        <div class="field">
+            <label for="name">Nome</label>
+            <input required="" type="text" name="login" placeholder="Digite seu nome">
+        </div>
+        <div class="field">
+            <label for="login">E-mail</label>
+            <input required="" type="text" name="login" placeholder="Digite seu e-mail">
+        </div>
+        <div class="field">
+            <label for="password">Senha</label>
+            <input required="" type="password" name="password" placeholder="Digite sua senha">
+        </div>
+        <div class="actions">
+            <button class="button" disabled type="submit">
+                CADASTRAR
+            </button>
+        </div>
+    </form>
+    <div class="mensagem-entre">
+        <span>Já tem uma conta?</span>
+        <a [routerLink]="['/login']">Entre.</a>
+    </div>
+</div>

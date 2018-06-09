@@ -7,9 +7,17 @@
       <img class="placar-jogo-equipes-escudo-mandante" [src]="getEscudo(jogo.equipe_mandante_id)" width="30" height="30" [title]="getEquipe(jogo.equipe_mandante_id)?.nome_popular">
     </span>
     <span class="placar-jogo-equipes-item placar-jogo-equipes-placar" *ngSwitchCase="true"> 
-      <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_mandante" min="0" max="19" [(ngModel)]="jogo.placar_oficial_mandante" (ngModelChange)="finalizarJogo()">
-      <span class="tabela-icone tabela-icone-versus"></span>
-      <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_visitante" min="0" max="19" [(ngModel)]="jogo.placar_oficial_visitante" (ngModelChange)="finalizarJogo()">
+      <div class="placar-oficial" *ngIf="!jogoEmpatado(jogo.placar_oficial_mandante, jogo.placar_oficial_visitante)">
+        <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_mandante" min="0" max="19" [(ngModel)]="jogo.placar_oficial_mandante" (ngModelChange)="finalizarJogo()">
+        <span class="tabela-icone tabela-icone-versus"></span>
+        <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_visitante" min="0" max="19" [(ngModel)]="jogo.placar_oficial_visitante" (ngModelChange)="finalizarJogo()">
+      </div>
+      <div class="placar-penaltis" style="margin-top: 10px;" *ngIf="jogoEmpatado(jogo.placar_oficial_mandante, jogo.placar_oficial_visitante)">
+        <span style="position: absolute;bottom: 50%;">Penaltis</span>
+        <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_penaltis_mandante" min="0" max="19" [(ngModel)]="jogo.placar_penaltis_mandante" (ngModelChange)="finalizarJogo()">
+        <span class="tabela-icone tabela-icone-versus"></span>
+        <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_penaltis_visitante" min="0" max="19" [(ngModel)]="jogo.placar_penaltis_visitante" (ngModelChange)="finalizarJogo()">
+      </div>
     </span>
     <span class="placar-jogo-equipes-item placar-jogo-equipes-placar" *ngSwitchCase="false"> 
       <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_mandante" min="0" max="19" [(ngModel)]="palpite.placar_mandante" [disabled]="partidaFinalizada()" (ngModelChange)="palpiteAlterado()">

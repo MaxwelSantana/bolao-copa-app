@@ -69,6 +69,6 @@ export class FasesComponent implements OnInit {
   }
 
   canNextFase() {
-    return this.indexFase < this.fases.length - 1;
+    return this.indexFase < this.fases.length - 1 && (this.fases[this.indexFase+1].finalizado || this.fases[this.indexFase+1].atual);
   }
 }

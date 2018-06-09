@@ -318,6 +318,16 @@
     }
 }
 
+@media only screen and (min-width: 480px) {
+    .chave-jogo-ida .placar-jogo-equipes-nome {
+        display:inline-block
+    }
+
+    .chave-jogo .placar-jogo-equipes-sigla {
+        display: none;
+    }
+}
+
 .placar-jogo-equipes-sigla, .placar-jogo-equipes-nome {
     line-height: 20px;
     max-width: 68%;
