@@ -4,8 +4,13 @@
       <span>{{faseAtual?.nome}}</span>
       <span class="tabela-navegacao-setas tabela-navegacao-right" [class.tabela-navegacao-setas-ativa]="canNextFase()" (click)="nextFase()"><i class="fas fa-arrow-right"></i></span>
 		</nav>
-    <button type="button" (click)="savePalpites()">SALVAR</button>
-    <div class="checkbox">
+    <button class="icon-button fixed-bottom mini cancel" [class.active]="hasModification" (click)="resetPalpites()">
+      <i class="fas fa-times"></i>
+    </button>
+    <button class="icon-button fixed-bottom save" [class.active]="hasModification" (click)="savePalpites()">
+      <i class="fa fa-save"></i>
+    </button>
+    <div class="checkbox" *ngIf="isAdmin">
       <label>
         <input type="checkbox" data-toggle="toggle" [(ngModel)]="placarOficial" (ngModelChange)="placarOficialMode()">
         Option one is enabled

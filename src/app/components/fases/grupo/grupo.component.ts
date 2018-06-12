@@ -48,16 +48,42 @@ export class GrupoComponent implements OnInit {
       this.pubsub.subscribe('palpiteAlterado').subscribe((palpite) => {
         this.palpiteAlterado(palpite);
       });
+
+      this.pubsub.subscribe('updateClassificacaoGrupos').subscribe((palpite) => {
+        this.updateClassificacao();
+      });
   }
 
   palpiteAlterado(palpite) {
-    console.log(palpite);
     if(this.grupo.grupo_id == palpite.grupo_id) {
       this.updateClassificacao();
     }
   }
 
   updateClassificacao() {
+    this.equipes.forEach(equipe => {
+      if(!equipe.pontuacao) {
+        equipe.pontuacao = Object.assign({}, this.pontuacaoVazia);
+      } else {
+        Object.assign(equipe.pontuacao, this.pontuacaoVazia);
+      }
+    });
+    
+    this.jogos.forEach(j => {
+      let equipe_mandante = this.equipes.find(e => e.equipe_id == j.equipe_mandante_id);
+      let equipe_visitante = this.equipes.find(e => e.equipe_id == j.equipe_visitante_id);
+
+      if(j.placar_oficial_mandante != undefined && j.placar_oficial_mandante != null && j.placar_oficial_visitante != undefined && j.placar_oficial_visitante != null) {
+        this.updatePontuacao(equipe_mandante, j.placar_oficial_mandante, j.placar_oficial_visitante);
+        this.updatePontuacao(equipe_visitante, j.placar_oficial_visitante, j.placar_oficial_mandante);
+      }
+
+    });
+
+    this.sortEquipes();
+  }
+
+  updateClassificacaoByPalpites() {
     let palpites = this.palpiteService.getPalpitesByUsuarioAndGrupo(this.grupo.grupo_id);
     
     if(!palpites.length)
@@ -84,6 +110,8 @@ export class GrupoComponent implements OnInit {
   }
 
   updatePontuacao(equipe, placar, placar_adversario) {
+    if(!equipe)
+      return;
     let { jogos, vitorias, derrotas, empates, gols_pro, gols_contra } = equipe.pontuacao;
 
     let result = placar - placar_adversario;
@@ -152,6 +180,7 @@ export class GrupoComponent implements OnInit {
       });
     });
     this.sortJogosByDate();
+    this.updateClassificacao();
   }
 
   sortJogosByDate() {

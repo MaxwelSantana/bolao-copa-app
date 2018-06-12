@@ -1,0 +1,41 @@
+.loader {
+    width: 100%;
+    height: 100%;
+    border-style: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1032;
+    background: hsla(0, 0%, 100%, 0.88);
+    display: none;
+}
+
+.loader.loading {
+    display: block;
+}
+
+.center-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 36px;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(0);
+        opacity: 0;
+    }
+}
+
+.icon-loading {
+    animation: spinner 1s linear infinite;
+    /*transition: opacity 0.5s 1s ease;*/
+}

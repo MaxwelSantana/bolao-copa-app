@@ -3,13 +3,15 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 module.exports.register = function(req, res) {
+  console.log("register");
   var user = new User();
 
   user.name = req.body.name;
   user.email = req.body.email;
+  user.roles = req.body.roles;
 
   user.setPassword(req.body.password);
-
+  console.log(user);
   user.save(function(err) {
     var token;
     token = user.generateJwt();

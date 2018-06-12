@@ -3,17 +3,20 @@
         <h2>LOGIN</h2>
     </header>
     <div class="social-login-container"></div>
-    <form class="form-fields-container">
+    <form #myForm="ngForm" (submit)="login()" class="form-fields-container">
         <div class="field">
-            <label for="login">E-mail</label>
-            <input required="" type="text" name="login" placeholder="Digite seu e-mail">
+            <label for="email">E-mail</label>
+            <input required type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" [(ngModel)]="credentials.email" placeholder="Digite seu e-mail">
         </div>
         <div class="field">
             <label for="password">Senha</label>
-            <input required="" type="password" name="password" placeholder="Digite sua senha">
+            <input required type="password" name="password" [(ngModel)]="credentials.password" placeholder="Digite sua senha">
+        </div>
+        <div class="validation-message login-field" *ngIf="error">
+            <span class="error ng-binding">{{error}}</span>
         </div>
         <div class="actions">
-            <button class="button ng-scope" type="submit">
+            <button class="button ng-scope" type="submit" [disabled]="myForm.invalid || !myForm.dirty">
                 Entrar
             </button>
         </div>

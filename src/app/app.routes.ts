@@ -6,11 +6,13 @@ import { ProximosJogosComponent } from "./components/proximos-jogos/proximos-jog
 import { LoginComponent } from "./components/account/login/login.component";
 import { AuthGuard } from "./services/auth-guard.service";
 import { RegisterComponent } from "./components/account/register/register.component";
+import { SettingComponent } from "./components/account/setting/setting.component";
 
 export const ROUTES: Routes = [
   //{path: "", redirectTo: '/fases', pathMatch: 'full'},
   {path: "login", component: LoginComponent},
   {path: "register", component: RegisterComponent},
+  {path: "account", component: SettingComponent},
   {path: "", component: ClassificacaoComponent, data: { authorities: ['ROLE_USER'] }, canActivate: [AuthGuard]},
   {path: "fases", component: FasesComponent, data: { authorities: ['ROLE_USER'] }, canActivate: [AuthGuard] },
   {path: "classificacao", component: ClassificacaoComponent, data: { authorities: ['ROLE_USER'] }, canActivate: [AuthGuard]},

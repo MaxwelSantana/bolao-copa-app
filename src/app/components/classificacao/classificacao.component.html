@@ -18,8 +18,8 @@
       <tbody>
         <tr *ngFor="let usuario of usuarios; index as i" class="tabela-body-linha">
           <td class="tabela-times-posicao" style="color:#0000ff;">{{i+1}}</td>
-          <td class="tabela-times-time" >{{usuario.nickname}}</td>
-          <td class="tabela-pontos-ponto">0</td>
+          <td class="tabela-times-time" (click)="selectUser(usuario)" >{{usuario.name}}</td>
+          <td class="tabela-pontos-ponto">{{getPontuacao(usuario)}}</td>
         </tr>
       </tbody>
     </table>
@@ -27,27 +27,26 @@
       <table class="tabela-pontos">
         <thead>
           <tr class="tabela-head-linha">
-            <th>J</th>
-            <th>V</th>
-            <th>E</th>
-            <th>D</th>
-            <th class="tabela-pontos-th-duplo">GP</th>
-            <th class="tabela-pontos-th-duplo">GC</th>
-            <th class="tabela-pontos-th-duplo">SG</th>
+            <th>Placar Correto</th>
+            <th>Resultado Correto</th>
+            <th>Resultado Errado</th>
           </tr>
         </thead>
         <tbody>
           <tr class="tabela-body-linha" *ngFor="let usuario of usuarios">
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
+            <td>{{usuario.pontuacao?.placar_correto}}</td>
+            <td>{{usuario.pontuacao?.resultado_correto}}</td>
+            <td>{{usuario.pontuacao?.resultado_errado}}</td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+
+  <div *ngIf="selectedUser">
+    <header>
+      <h2 class="tabela-header-titulo">{{selectedUser.name}}</h2>
+    </header>
+    <app-proximos-jogos [userId]="selectedUser._id"></app-proximos-jogos>
   </div>
 </section>

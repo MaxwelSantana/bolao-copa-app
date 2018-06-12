@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-var dbURI = 'mongodb://localhost/meanAuth';
+var dbURI = 'mongodb://localhost/bolao-app-db';
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
 }
@@ -46,4 +46,10 @@ process.on('SIGTERM', function() {
 });
 
 // BRING IN YOUR SCHEMAS & MODELS
+require('./counters');
+require('./equipes');
+require('./fases');
+require('./jogos');
+require('./palpites');
+require('./sedes');
 require('./users');

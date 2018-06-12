@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 import { Router } from '@angular/router';
+import { API } from "../app.api";
 
 export interface UserDetails {
   _id: string;
@@ -21,6 +22,7 @@ export interface TokenPayload {
   email: string;
   password: string;
   name?: string;
+  roles?: string[];
 }
 
 @Injectable()
@@ -72,11 +74,11 @@ export class AuthenticationService {
 
   private request(method: 'post'|'get', type: 'login'|'register'|'profile', user?: TokenPayload): Observable<any> {
     let base;
-
+    
     if (method === 'post') {
-      base = this.http.post(`/api/${type}`, user);
+      base = this.http.post(`${API}/${type}`, user);
     } else {
-      base = this.http.get(`/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+      base = this.http.get(`${API}/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
     }
 
     const request = base.pipe(
@@ -101,6 +103,21 @@ export class AuthenticationService {
 
   public profile(): Observable<any> {
     return this.request('get', 'profile');
+  }
+
+  public update(user: any): Observable<any> {
+    let base = this.http.post(`${API}/profile/edit`, user, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+
+    const request = base.pipe(
+      map((data: TokenResponse) => {
+        if (data.token) {
+          this.saveToken(data.token);
+        }
+        return data;
+      })
+    );
+
+    return request;
   }
   
 }

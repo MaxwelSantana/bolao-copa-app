@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
         if(!authorities || authorities.length === 0) {
             return true;
         }
-
         for (let i = 0; i < authorities.length; i++) {
             if(this.authenticationService.getUserDetails().roles.includes(authorities[i])) {
                 return true;

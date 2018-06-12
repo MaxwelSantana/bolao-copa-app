@@ -60,3 +60,7 @@ button, input {
 :focus {
     outline: 0;
 }
+
+b, strong {
+    font-weight: bolder !important;
+}

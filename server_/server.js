@@ -349,7 +349,7 @@ function updatePontuacao(equipe, placar, placar_adversario) {
       Object.assign(equipe.pontuacao, {empates: empates + 1});
     }
 
-  }
+}
 
 app.get('/sedes', function(req, res) {
     db.collection("sedes").find({}).toArray(function(err, result) {

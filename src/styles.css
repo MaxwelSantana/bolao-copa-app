@@ -3,3 +3,5 @@
 @import './login.css';
 @import './custom.css';
 @import './regua-navegacao.css';
+@import './loader.css';
+@import "~ngx-toastr/toastr.css";

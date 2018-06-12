@@ -18,3 +18,20 @@ module.exports.profileRead = function(req, res) {
   }
 
 };
+
+module.exports.update = function(req, res) {
+  User.findById(req.payload._id, function(err, user) {  
+   if (err) throw err; 
+   
+   user.name = req.body.name;
+
+   user.save(function(err) {
+    var token;
+    token = user.generateJwt();
+    res.status(200);
+    res.json({
+      "token" : token
+    });
+  }); 
+ });
+};

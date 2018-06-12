@@ -1,0 +1,677 @@
+{ 
+    "_id" : ObjectId("5afb6ff6bd996c08740f3638"), 
+    "fase_id" : NumberInt(5362), 
+    "proxima_fase_id" : NumberInt(5363), 
+    "slug" : "fase-grupos-copa-do-mundo-2018", 
+    "edicao_id" : NumberInt(2594), 
+    "ordem" : NumberInt(1), 
+    "data_fim" : "2018-06-28", 
+    "tipo" : {
+        "tipo_id" : "3", 
+        "descricao" : "Pontos Corridos Grupado"
+    }, 
+    "nome" : "Fase de grupos", 
+    "formato" : {
+        "descricao" : "Um jogo", 
+        "formato_id" : NumberInt(0)
+    }, 
+    "data_inicio" : "2018-06-14", 
+    "atual" : true, 
+    "disclaimer" : "", 
+    "grupos" : [
+        {
+            "grupo_id" : NumberInt(2044), 
+            "nome_grupo" : "Grupo A", 
+            "equipes" : [
+                NumberInt(2344), 
+                NumberInt(2324), 
+                NumberInt(2383), 
+                NumberInt(2356)
+            ]
+        }, 
+        {
+            "grupo_id" : NumberInt(2045), 
+            "nome_grupo" : "Grupo B", 
+            "equipes" : [
+                NumberInt(2326), 
+                NumberInt(2336), 
+                NumberInt(2332), 
+                NumberInt(2390)
+            ]
+        }, 
+        {
+            "grupo_id" : NumberInt(2046), 
+            "nome_grupo" : "Grupo C", 
+            "equipes" : [
+                NumberInt(2333), 
+                NumberInt(2341), 
+                NumberInt(2385), 
+                NumberInt(2319)
+            ]
+        }, 
+        {
+            "grupo_id" : NumberInt(2047), 
+            "nome_grupo" : "Grupo D", 
+            "equipes" : [
+                NumberInt(2357), 
+                NumberInt(2379), 
+                NumberInt(2870), 
+                NumberInt(2393)
+            ]
+        }, 
+        {
+            "grupo_id" : NumberInt(2048), 
+            "nome_grupo" : "Grupo E", 
+            "equipes" : [
+                NumberInt(2318), 
+                NumberInt(2388), 
+                NumberInt(2605), 
+                NumberInt(2320)
+            ]
+        }, 
+        {
+            "grupo_id" : NumberInt(2049), 
+            "nome_grupo" : "Grupo F", 
+            "equipes" : [
+                NumberInt(2384), 
+                NumberInt(2374), 
+                NumberInt(2360), 
+                NumberInt(2368)
+            ]
+        }, 
+        {
+            "grupo_id" : NumberInt(2050), 
+            "nome_grupo" : "Grupo G", 
+            "equipes" : [
+                NumberInt(2392), 
+                NumberInt(2370), 
+                NumberInt(3062), 
+                NumberInt(2337)
+            ]
+        }, 
+        {
+            "grupo_id" : NumberInt(2051), 
+            "nome_grupo" : "Grupo H", 
+            "equipes" : [
+                NumberInt(2373), 
+                NumberInt(2369), 
+                NumberInt(2371), 
+                NumberInt(2347)
+            ]
+        }
+    ], 
+    "finalizado" : false
+}
+{ 
+    "_id" : ObjectId("5afb6ff6bd996c08740f3639"), 
+    "fase_id" : NumberInt(5363), 
+    "slug" : "oitavas-copa-do-mundo-2018", 
+    "edicao_id" : NumberInt(2594), 
+    "ordem" : NumberInt(2), 
+    "data_fim" : "2018-07-03", 
+    "tipo" : {
+        "tipo_id" : "2", 
+        "descricao" : "Mata-Mata"
+    }, 
+    "nome" : "Oitavas de final", 
+    "formato" : {
+        "descricao" : "Um jogo", 
+        "formato_id" : NumberInt(0)
+    }, 
+    "data_inicio" : "2018-06-29", 
+    "atual" : false, 
+    "disclaimer" : "", 
+    "chaves" : [
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(1), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(2979), 
+                    "data" : "2018-06-30"
+                }, 
+                "jogo_id" : "59187-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 1", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59187), 
+            "chave_subsequente_id" : NumberInt(59195), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2344), 
+                "label" : "1º A"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2336), 
+                "label" : "2º B"
+            }
+        }, 
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(2), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "11:00:00", 
+                    "sede_id" : NumberInt(2977), 
+                    "data" : "2018-06-30"
+                }, 
+                "jogo_id" : "59188-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 2", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59188), 
+            "chave_subsequente_id" : NumberInt(59195), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2333), 
+                "label" : "1º C"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2379), 
+                "label" : "2º D"
+            }
+        }, 
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(3), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "11:00:00", 
+                    "sede_id" : NumberInt(1621), 
+                    "data" : "2018-07-02"
+                }, 
+                "jogo_id" : "59189-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 3", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59189), 
+            "chave_subsequente_id" : NumberInt(59196), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2318), 
+                "label" : "1º E"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2374), 
+                "label" : "2º F"
+            }
+        }, 
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(4), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(2663), 
+                    "data" : "2018-07-02"
+                }, 
+                "jogo_id" : "59190-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 4", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59190), 
+            "chave_subsequente_id" : NumberInt(59196), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2392), 
+                "label" : "1º G"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2369), 
+                "label" : "2º H"
+            }
+        }, 
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(5), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "11:00:00", 
+                    "sede_id" : NumberInt(1842), 
+                    "data" : "2018-07-01"
+                }, 
+                "jogo_id" : "59191-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 5", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59191), 
+            "chave_subsequente_id" : NumberInt(59197), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2326), 
+                "label" : "1º B"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2324), 
+                "label" : "2º A"
+            }
+        }, 
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(6), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(1984), 
+                    "data" : "2018-07-01"
+                }, 
+                "jogo_id" : "59192-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 6", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59192), 
+            "chave_subsequente_id" : NumberInt(59197), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2357), 
+                "label" : "1º D"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2341), 
+                "label" : "2º C"
+            }
+        }, 
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(7), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "11:00:00", 
+                    "sede_id" : NumberInt(2976), 
+                    "data" : "2018-07-03"
+                }, 
+                "jogo_id" : "59193-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 7", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59193), 
+            "chave_subsequente_id" : NumberInt(59198), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2384), 
+                "label" : "1º F"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2388), 
+                "label" : "2º E"
+            }
+        }, 
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(8), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(2978), 
+                    "data" : "2018-07-03"
+                }, 
+                "jogo_id" : "59194-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Oitavas 8", 
+            "fase_id" : NumberInt(5363), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59194), 
+            "chave_subsequente_id" : NumberInt(59198), 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2373), 
+                "label" : "1º H"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2370), 
+                "label" : "2º G"
+            }
+        }
+    ], 
+    "finalizado" : false, 
+    "proxima_fase_id" : NumberInt(5364)
+}
+{ 
+    "_id" : ObjectId("5afb6ff6bd996c08740f363a"), 
+    "fase_id" : NumberInt(5364), 
+    "slug" : "quartas-copa-do-mundo-2018", 
+    "edicao_id" : NumberInt(2594), 
+    "ordem" : NumberInt(3), 
+    "data_fim" : "2018-07-07", 
+    "tipo" : {
+        "tipo_id" : "2", 
+        "descricao" : "Mata-Mata"
+    }, 
+    "nome" : "Quartas de final", 
+    "formato" : {
+        "descricao" : "Um jogo", 
+        "formato_id" : NumberInt(0)
+    }, 
+    "data_inicio" : "2018-07-04", 
+    "atual" : false, 
+    "disclaimer" : "", 
+    "chaves" : [
+        {
+            "chave_anterior_id" : [
+                NumberInt(59187), 
+                NumberInt(59188)
+            ], 
+            "ordem" : NumberInt(1), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "11:00:00", 
+                    "sede_id" : NumberInt(1984), 
+                    "data" : "2018-07-06"
+                }, 
+                "jogo_id" : "59195-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Quartas 1", 
+            "fase_id" : NumberInt(5364), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59195), 
+            "chave_subsequente_id" : NumberInt(59199), 
+            "equipe_1" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 1"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 2"
+            }
+        }, 
+        {
+            "chave_anterior_id" : [
+                NumberInt(59189), 
+                NumberInt(59190)
+            ], 
+            "ordem" : NumberInt(2), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(2977), 
+                    "data" : "2018-07-06"
+                }, 
+                "jogo_id" : "59196-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Quartas 2", 
+            "fase_id" : NumberInt(5364), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59196), 
+            "chave_subsequente_id" : NumberInt(59199), 
+            "equipe_1" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 3"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 4"
+            }
+        }, 
+        {
+            "chave_anterior_id" : [
+                NumberInt(59191), 
+                NumberInt(59192)
+            ], 
+            "ordem" : NumberInt(3), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(2979), 
+                    "data" : "2018-07-07"
+                }, 
+                "jogo_id" : "59197-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Quartas 3", 
+            "fase_id" : NumberInt(5364), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59197), 
+            "chave_subsequente_id" : NumberInt(59200), 
+            "equipe_1" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 5"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 6"
+            }
+        }, 
+        {
+            "chave_anterior_id" : [
+                NumberInt(59193), 
+                NumberInt(59194)
+            ], 
+            "ordem" : NumberInt(4), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "11:00:00", 
+                    "sede_id" : NumberInt(1621), 
+                    "data" : "2018-07-07"
+                }, 
+                "jogo_id" : "59198-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Quartas 4", 
+            "fase_id" : NumberInt(5364), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59198), 
+            "chave_subsequente_id" : NumberInt(59200), 
+            "equipe_1" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 7"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Oitavas 8"
+            }
+        }
+    ], 
+    "finalizado" : false, 
+    "proxima_fase_id" : NumberInt(5365)
+}
+{ 
+    "_id" : ObjectId("5afb6ff6bd996c08740f363b"), 
+    "fase_id" : NumberInt(5365), 
+    "slug" : "semifinal-copa-do-mundo-2018", 
+    "edicao_id" : NumberInt(2594), 
+    "ordem" : NumberInt(4), 
+    "data_fim" : "2018-07-11", 
+    "tipo" : {
+        "tipo_id" : "2", 
+        "descricao" : "Mata-Mata"
+    }, 
+    "nome" : "Semifinal", 
+    "formato" : {
+        "descricao" : "Um jogo", 
+        "formato_id" : NumberInt(0)
+    }, 
+    "data_inicio" : "2018-07-08", 
+    "atual" : false, 
+    "disclaimer" : "", 
+    "chaves" : [
+        {
+            "chave_anterior_id" : [
+                NumberInt(59195), 
+                NumberInt(59196)
+            ], 
+            "ordem" : NumberInt(1), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(2976), 
+                    "data" : "2018-07-10"
+                }, 
+                "jogo_id" : "59199-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Semifinal 1", 
+            "fase_id" : NumberInt(5365), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59199), 
+            "chave_subsequente_id" : NumberInt(59201), 
+            "equipe_1" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Quartas 1"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Quartas 2"
+            }
+        }, 
+        {
+            "chave_anterior_id" : [
+                NumberInt(59197), 
+                NumberInt(59198)
+            ], 
+            "ordem" : NumberInt(2), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "15:00:00", 
+                    "sede_id" : NumberInt(1842), 
+                    "data" : "2018-07-11"
+                }, 
+                "jogo_id" : "59200-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Semifinal 2", 
+            "fase_id" : NumberInt(5365), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59200), 
+            "chave_subsequente_id" : NumberInt(59201), 
+            "equipe_1" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Quartas 3"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Quartas 4"
+            }
+        }
+    ], 
+    "finalizado" : false, 
+    "proxima_fase_id" : NumberInt(5366)
+}
+{ 
+    "_id" : ObjectId("5afb6ff6bd996c08740f363c"), 
+    "fase_id" : NumberInt(5366), 
+    "slug" : "final-copa-do-mundo-2018", 
+    "edicao_id" : NumberInt(2594), 
+    "ordem" : NumberInt(6), 
+    "data_fim" : "2018-07-15", 
+    "tipo" : {
+        "tipo_id" : "2", 
+        "descricao" : "Mata-Mata"
+    }, 
+    "nome" : "Final", 
+    "formato" : {
+        "descricao" : "Um jogo", 
+        "formato_id" : NumberInt(0)
+    }, 
+    "data_inicio" : "2018-07-12", 
+    "atual" : false, 
+    "disclaimer" : "", 
+    "chaves" : [
+        {
+            "chave_anterior_id" : [
+                NumberInt(59199), 
+                NumberInt(59200)
+            ], 
+            "ordem" : NumberInt(1), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "12:00:00", 
+                    "sede_id" : NumberInt(1842), 
+                    "data" : "2018-07-15"
+                }, 
+                "jogo_id" : "59201-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Final", 
+            "fase_id" : NumberInt(5366), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59201), 
+            "chave_subsequente_id" : null, 
+            "equipe_1" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Semifinal 1"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : null, 
+                "label" : "Venc. Semifinal 2"
+            }
+        }
+    ], 
+    "finalizado" : false, 
+    "proxima_fase_id" : NumberInt(5473)
+}
+{ 
+    "_id" : ObjectId("5afb6ff6bd996c08740f363d"), 
+    "fase_id" : NumberInt(5473), 
+    "slug" : "terceiro-copa-do-mundo-2018", 
+    "edicao_id" : NumberInt(2594), 
+    "ordem" : NumberInt(5), 
+    "data_fim" : "2018-07-12", 
+    "tipo" : {
+        "tipo_id" : "2", 
+        "descricao" : "Mata-Mata"
+    }, 
+    "nome" : "Disputa do 3º lugar", 
+    "formato" : {
+        "descricao" : "Um jogo", 
+        "formato_id" : NumberInt(0)
+    }, 
+    "data_inicio" : "2018-07-12", 
+    "atual" : false, 
+    "disclaimer" : "", 
+    "chaves" : [
+        {
+            "chave_anterior_id" : null, 
+            "ordem" : NumberInt(1), 
+            "jogo_1" : {
+                "informacoes" : {
+                    "hora" : "11:00:00", 
+                    "sede_id" : NumberInt(2976), 
+                    "data" : "2018-07-14"
+                }, 
+                "jogo_id" : "59375-ida"
+            }, 
+            "jogo_2" : null, 
+            "nome" : "Disputa do 3º lugar", 
+            "fase_id" : NumberInt(5473), 
+            "jogo_3" : null, 
+            "vencedor_chave_id" : null, 
+            "chave_id" : NumberInt(59375), 
+            "chave_subsequente_id" : null, 
+            "equipe_1" : {
+                "equipe_id" : NumberInt(2344), 
+                "label" : "Perd. Semifinal 1"
+            }, 
+            "equipe_2" : {
+                "equipe_id" : NumberInt(2384), 
+                "label" : "Perd. Semifinal 2"
+            }
+        }
+    ], 
+    "finalizado" : false, 
+    "proxima_fase_id" : NumberInt(0)
+}

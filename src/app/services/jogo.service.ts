@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { JogoEndpointService } from "./jogo-endpoint.service";
 import { EventsService } from "angular4-events/esm/src";
+import { MessageService } from "./message.service";
+import { LoaderService } from "./loader.service";
 
 @Injectable()
 export class JogoService {
@@ -8,7 +10,7 @@ export class JogoService {
   jogos: any[] = [];
   jogosModificados: any[] = [];
 
-  constructor(private jogoEndpointService: JogoEndpointService, private events: EventsService) { }
+  constructor(private jogoEndpointService: JogoEndpointService, private events: EventsService, private messageService: MessageService, private loaderService: LoaderService) { }
 
   loadJogos() {
     this.jogoEndpointService.getJogos().subscribe(jogos => {
@@ -40,8 +42,12 @@ export class JogoService {
   }
 
   updateJogosModificados() {
+    this.loaderService.toggle();
     this.jogoEndpointService.updateJogos(this.jogosModificados).subscribe(() => {
       this.jogosModificados = [];
+      this.messageService.success('Jogos Atualizados!');
+      this.loaderService.toggle();
+      this.events.publish('loadAll');
     });
   }
 }

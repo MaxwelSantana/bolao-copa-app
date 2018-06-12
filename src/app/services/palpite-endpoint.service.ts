@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
+import { API } from "../app.api";
 
 @Injectable()
 export class PalpiteEndpointService {
 
   constructor(private http: HttpClient) { }
 
-  palpiteUrl = "http://192.168.0.105:3000/palpites";
+  palpiteUrl = `${API}/palpites`;
 
   getPalpites(): Observable<any> {
     return this.http.get(this.palpiteUrl);

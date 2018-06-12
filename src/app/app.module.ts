@@ -4,6 +4,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
 import { EventsModule } from 'angular4-events';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
@@ -20,6 +22,8 @@ import { ProximosJogosComponent } from './components/proximos-jogos/proximos-jog
 import { ChaveComponent } from './components/fases/chave/chave.component';
 import { LoginComponent } from './components/account/login/login.component';
 import { RegisterComponent } from "./components/account/register/register.component";
+import { SettingComponent } from './components/account/setting/setting.component';
+import { LoaderComponent } from './components/shared/loader/loader.component';
 
 import { FaseService } from './services/fase.service';
 import { FaseEndpointService } from './services/fase-endpoint.service';
@@ -33,6 +37,10 @@ import { PalpiteEndpointService } from "./services/palpite-endpoint.service";
 import { PalpiteService } from "./services/palpite.service";
 import { AuthenticationService } from "./services/authentication.service";
 import { AuthGuard } from "./services/auth-guard.service";
+import { LoaderService } from "./services/loader.service";
+import { MessageService } from "./services/message.service";
+import { UserService } from "./services/user.service";
+import { UserEndpointService } from "./services/user-endpoint.service";
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -49,7 +57,9 @@ import { environment } from '../environments/environment';
     ProximosJogosComponent,
     ChaveComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SettingComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +67,15 @@ import { environment } from '../environments/environment';
     FormsModule,
     RouterModule.forRoot(ROUTES),
     EventsModule.forRoot(),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-bottom-full-width',
+      preventDuplicates: true,
+      progressBar: true,
+      progressAnimation: 'increasing'
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },
@@ -72,7 +90,11 @@ import { environment } from '../environments/environment';
     SedeService,
     SedeEndpointService,
     PalpiteService,
-    PalpiteEndpointService
+    PalpiteEndpointService,
+    UserService,
+    UserEndpointService,
+    LoaderService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

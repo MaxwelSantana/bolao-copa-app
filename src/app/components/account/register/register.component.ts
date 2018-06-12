@@ -1,14 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenPayload, AuthenticationService } from "../../../services/authentication.service";
+import { Router } from "@angular/router";
+import { USER } from "../../shared/constants/roles.constants";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html'
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor() { }
+  credentials: TokenPayload = {
+    email: '',
+    name: '',
+    password: '',
+    roles: [USER]
+  };
 
-  ngOnInit() {
+  constructor(private auth: AuthenticationService, private router: Router) {}
+
+  register() {
+    this.auth.register(this.credentials).subscribe(() => {
+      this.router.navigateByUrl('/');
+    }, (err) => {
+      console.error(err);
+    });
   }
 
 }

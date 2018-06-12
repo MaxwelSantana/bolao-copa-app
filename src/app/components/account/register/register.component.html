@@ -3,21 +3,21 @@
         <h2>CADASTRO</h2>
     </header>
     <div class="social-login-container"></div>
-    <form class="form-fields-container">
+    <form #myForm="ngForm" class="form-fields-container" (submit)="register()">
         <div class="field">
             <label for="name">Nome</label>
-            <input required="" type="text" name="login" placeholder="Digite seu nome">
+            <input required type="text" name="login" placeholder="Digite seu nome" [(ngModel)]="credentials.name">
         </div>
         <div class="field">
             <label for="login">E-mail</label>
-            <input required="" type="text" name="login" placeholder="Digite seu e-mail">
+            <input required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="login" placeholder="Digite seu e-mail" [(ngModel)]="credentials.email">
         </div>
         <div class="field">
             <label for="password">Senha</label>
-            <input required="" type="password" name="password" placeholder="Digite sua senha">
+            <input required type="password" name="password" placeholder="Digite sua senha" [(ngModel)]="credentials.password">
         </div>
         <div class="actions">
-            <button class="button" disabled type="submit">
+            <button class="button" type="submit" [disabled]="myForm.invalid || !myForm.dirty">
                 CADASTRAR
             </button>
         </div>

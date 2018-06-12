@@ -1,0 +1,24 @@
+<div class="form-container dynamic-window-sized">
+    <header class="login-header">
+        <h2>MINHA CONTA</h2>
+    </header>
+    <div class="social-login-container"></div>
+    <form #myForm="ngForm" class="form-fields-container" (submit)="salvarAlteracoes()">
+        <div class="field">
+            <label for="name">Nome</label>
+            <input required type="text" name="name" placeholder="Digite seu nome" [(ngModel)]="credentials.name">
+        </div>
+        <div class="field">
+            <label for="login">E-mail</label>
+            <input required type="text" name="email" placeholder="Digite seu e-mail" [(ngModel)]="credentials.email" disabled>
+        </div>
+        <div class="actions">
+            <button class="button" type="submit" [disabled]="myForm.invalid || !myForm.dirty">
+                SALVAR
+            </button>
+            <button class="button logout-button" type="button" (click)="logout()">
+                SAIR
+            </button>
+        </div>
+    </form>
+</div>

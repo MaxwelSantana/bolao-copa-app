@@ -5,6 +5,9 @@ import { EventsService } from "angular4-events/esm/src";
 import { JogoService } from "../../services/jogo.service";
 import { SedeService } from "../../services/sede.service";
 import { PalpiteService } from "../../services/palpite.service";
+import { ToastrService } from "ngx-toastr";
+import { MessageService } from "../../services/message.service";
+import { AuthenticationService } from "../../services/authentication.service";
 
 @Component({
   selector: 'app-fases',
@@ -16,10 +19,17 @@ export class FasesComponent implements OnInit {
   placarOficial = false;
 
   constructor(private faseService: FaseService, private equipeService: EquipeService, 
-    private jogoService: JogoService, private sedeService: SedeService, 
-    private palpiteService: PalpiteService, private pubsub: EventsService,  private events: EventsService) { }
+    private jogoService: JogoService, private sedeService: SedeService, private authenticationService: AuthenticationService,
+    private palpiteService: PalpiteService, private pubsub: EventsService,  private events: EventsService, private messageService: MessageService) { }
 
   ngOnInit() {
+    this.pubsub.subscribe('loadAll').subscribe(() => {
+        this.loadAll();
+    });
+    this.loadAll();
+  }
+
+  loadAll() {
     this.faseService.loadFases();
     this.sedeService.loadSedes();
     this.palpiteService.loadPalpites();
@@ -27,7 +37,14 @@ export class FasesComponent implements OnInit {
         this.equipeService.loadEquipes();
         this.jogoService.loadJogos();
     });
+  }
 
+  resetPalpites() {
+    this.palpiteService.resetPalpitesByUsuario();
+  }
+
+  get hasModification() {
+    return this.palpiteService.getPalpitesAlterados().length > 0 || this.isAdmin; 
   }
 
   get fases() {
@@ -57,6 +74,7 @@ export class FasesComponent implements OnInit {
   nextFase() {
     if(this.canNextFase())
       this.indexFase++;
+    console.log(this.faseAtual);
   }
 
   prevFase() {
@@ -70,5 +88,9 @@ export class FasesComponent implements OnInit {
 
   canNextFase() {
     return this.indexFase < this.fases.length - 1 && (this.fases[this.indexFase+1].finalizado || this.fases[this.indexFase+1].atual);
+  }
+
+  get isAdmin() {
+    return this.authenticationService.getUserDetails().roles.includes('ROLE_ADMIN');
   }
 }

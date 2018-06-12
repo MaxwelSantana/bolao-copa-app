@@ -1,5 +1,17 @@
+<select class="select-rodada" [ngModel]="filtroSelecionado" (ngModelChange)="filterJogos($event)">
+  <option *ngFor="let filtro of filtros" [ngValue]="filtro">
+    <span>{{filtro.label}} |</span>
+    <span>{{filtro.data}}</span>
+  </option>
+</select>
+<button class="icon-button fixed-bottom mini cancel" [class.active]="hasModification" (click)="resetPalpites()">
+  <i class="fas fa-times"></i>
+</button>
+<button class="icon-button fixed-bottom save" [class.active]="hasModification" (click)="savePalpites()">
+  <i class="fa fa-save"></i>
+</button>
 <ul class="lista-de-jogos-conteudo">
-  <li class="lista-de-jogos-item" *ngFor="let jogo of proximosJogos">
-    <app-jogo [jogo]="jogo"></app-jogo>
+  <li class="lista-de-jogos-item" *ngFor="let jogo of filteredJogos">
+    <app-jogo [userId]="userId" [jogo]="jogo"></app-jogo>
   </li>
 </ul>
