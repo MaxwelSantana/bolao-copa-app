@@ -25,7 +25,7 @@ export class JogoComponent implements AfterContentInit, OnChanges {
   };
 
   placarOficial = false;
-  today = moment("2018-06-15 12:59:00");
+  today = moment();
 
   constructor(private sedeService: SedeService, private equipeService: EquipeService, private palpiteService: PalpiteService, private jogoService: JogoService,
     private events: EventsService, private pubsub: EventsService, private authenticationService: AuthenticationService) { }
