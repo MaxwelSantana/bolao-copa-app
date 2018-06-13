@@ -60,7 +60,7 @@ export class FasesComponent implements OnInit {
   }
 
   savePalpites() {
-    if(this.placarOficial) {
+    if(this.isAdmin) {
       this.jogoService.updateJogosModificados();
     } else {
       this.palpiteService.savePalpites();

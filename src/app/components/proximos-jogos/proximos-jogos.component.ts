@@ -4,6 +4,7 @@ import { EventsService } from "angular4-events";
 import * as moment from 'moment';
 import { EquipeService } from "../../services/equipe.service";
 import { PalpiteService } from "../../services/palpite.service";
+import { FaseService } from "../../services/fase.service";
 
 @Component({
   selector: 'app-proximos-jogos',
@@ -16,14 +17,14 @@ export class ProximosJogosComponent implements OnInit, OnChanges {
   equipes: any[] = [];
 
   filtros = [
-    { label: 'Fase de grupos: Rodada 1', data: '14/06 - 19/06', dataInicial:'2018-06-14', dataFinal: '2018-06-19', filterBy: 'rodada', value: 1 },
-    { label: 'Fase de grupos: Rodada 2', data: '19/06 - 24/06', dataInicial:'2018-06-19', dataFinal: '2018-06-24', filterBy: 'rodada', value: 2 },
-    { label: 'Fase de grupos: Rodada 3', data: '25/06 - 28/06', dataInicial:'2018-06-25', dataFinal: '2018-06-28', filterBy: 'rodada', value: 3 },
-    { label: 'Oitavas de final', data: '30/06 - 03/07', dataInicial:'2018-06-30', dataFinal: '2018-07-03', filterBy: 'fase_id', value: 5363 },
-    { label: 'Quartas de final', data: '06/07 - 07/07', dataInicial:'2018-07-06', dataFinal: '2018-07-07', filterBy: 'fase_id', value: 5364 },
-    { label: 'Semifinais', data: '10/07 - 11/07', dataInicial:'2018-07-10', dataFinal: '2018-07-11', filterBy: 'fase_id', value: 5365 },
-    { label: 'Terceiro Lugar', data: '14/07', dataInicial:'2018-07-14', dataFinal: '2018-07-14', filterBy: 'fase_id', value: 5473 },
-    { label: 'Final', data: '15/07', dataInicial:'2018-07-15', dataFinal: '2018-07-15', filterBy: 'fase_id', value: 5366 }
+    { faseId: 5362, label: 'Fase de grupos: Rodada 1', data: '14/06 - 19/06', dataInicial:'2018-06-14', dataFinal: '2018-06-19', filterBy: 'rodada', value: 1 },
+    { faseId: 5362, label: 'Fase de grupos: Rodada 2', data: '19/06 - 24/06', dataInicial:'2018-06-19', dataFinal: '2018-06-24', filterBy: 'rodada', value: 2 },
+    { faseId: 5362, label: 'Fase de grupos: Rodada 3', data: '25/06 - 28/06', dataInicial:'2018-06-25', dataFinal: '2018-06-28', filterBy: 'rodada', value: 3 },
+    { faseId: 5363, label: 'Oitavas de final', data: '30/06 - 03/07', dataInicial:'2018-06-30', dataFinal: '2018-07-03', filterBy: 'fase_id', value: 5363 },
+    { faseId: 5364, label: 'Quartas de final', data: '06/07 - 07/07', dataInicial:'2018-07-06', dataFinal: '2018-07-07', filterBy: 'fase_id', value: 5364 },
+    { faseId: 5365, label: 'Semifinais', data: '10/07 - 11/07', dataInicial:'2018-07-10', dataFinal: '2018-07-11', filterBy: 'fase_id', value: 5365 },
+    { faseId: 5473, label: 'Terceiro Lugar', data: '14/07', dataInicial:'2018-07-14', dataFinal: '2018-07-14', filterBy: 'fase_id', value: 5473 },
+    { faseId: 5366, label: 'Final', data: '15/07', dataInicial:'2018-07-15', dataFinal: '2018-07-15', filterBy: 'fase_id', value: 5366 }
   ];
 
   filtroSelecionado = {};
@@ -31,16 +32,28 @@ export class ProximosJogosComponent implements OnInit, OnChanges {
   @Input("userId")
   userId = null;
 
-  constructor(private jogoService: JogoService,private equipeService: EquipeService, 
+  constructor(private faseService: FaseService, private jogoService: JogoService,private equipeService: EquipeService, 
     private pubsub: EventsService, private palpiteService: PalpiteService) { }
 
   ngOnInit() {
     //this.setFiltroByDataAtual();
     this.equipeService.loadEquipes();
     this.jogoService.loadJogos();
+    this.faseService.loadFases();
 
     this.pubsub.subscribe('jogosLoaded').subscribe(() => {
       this.setProximosJogos(this.jogoService.getJogos());
+    });
+
+    this.pubsub.subscribe('fasesLoaded').subscribe(() => {
+      this.filterComboByFase();
+    });
+  }
+
+  filterComboByFase() {
+    this.filtros = this.filtros.filter(filtro => {
+      let fase = this.faseService.getFase(filtro.faseId);
+      return fase && (fase.finalizado || fase.atual);
     });
   }
 

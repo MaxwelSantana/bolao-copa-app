@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventsService } from "angular4-events/esm/src";
 import { UserEndpointService } from "../../services/user-endpoint.service";
 import { PalpiteService } from "../../services/palpite.service";
+import { PLAYER } from "../shared/constants/roles.constants";
 
 @Component({
   selector: 'app-classificacao',
@@ -32,7 +33,7 @@ export class ClassificacaoComponent implements OnInit {
   }
 
   setUsuarios(usuarios) {
-    this.usuarios = usuarios;
+    this.usuarios = usuarios.filter(usuario => usuario.roles.includes(PLAYER));
   }
 
   updatePontuacao() {
@@ -60,6 +61,6 @@ export class ClassificacaoComponent implements OnInit {
   sort() {
     this.usuarios.sort((user1, user2) => {
       return this.getPontuacao(user2) - this.getPontuacao(user1);
-    }
+    });
   }
 }

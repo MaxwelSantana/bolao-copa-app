@@ -20,7 +20,7 @@
       </div>
     </span>
     <span class="placar-jogo-equipes-item placar-jogo-equipes-placar" *ngSwitchCase="false">
-      <div class="placar-jogo-finalizado" *ngIf="partidaFinalizada() || userId">
+      <div class="placar-jogo-finalizado" *ngIf="partidaFinalizada() || lessThanHourToStartPlay() || userId">
         <div>
           <strong>{{getPlacarOficialMandante}}</strong><span> placar </span><strong>{{getPlacarOficialVisitante}}</strong>
         </div>
@@ -28,7 +28,7 @@
           <strong>{{getPalpiteMandante}}</strong><span> palpite </span><strong>{{getPalpiteVisitante}}</strong>
         </div>
       </div>
-      <div *ngIf="!partidaFinalizada() && !userId">
+      <div *ngIf="!partidaFinalizada() && !lessThanHourToStartPlay() && !userId">
         <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_mandante" min="0" max="19" [(ngModel)]="palpite.placar_mandante" [disabled]="partidaFinalizada()" (ngModelChange)="palpiteAlterado()">
         <span class="tabela-icone tabela-icone-versus"></span>
         <input type="number" pattern="\d*" onclick="this.select();" class="placar-input" simulador-placar-mando="placar_oficial_visitante" min="0" max="19" [(ngModel)]="palpite.placar_visitante" [disabled]="partidaFinalizada()" (ngModelChange)="palpiteAlterado()">

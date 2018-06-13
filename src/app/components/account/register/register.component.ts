@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenPayload, AuthenticationService } from "../../../services/authentication.service";
 import { Router } from "@angular/router";
-import { USER } from "../../shared/constants/roles.constants";
+import { USER, PLAYER } from "../../shared/constants/roles.constants";
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ export class RegisterComponent {
     email: '',
     name: '',
     password: '',
-    roles: [USER]
+    roles: [USER, PLAYER]
   };
 
   constructor(private auth: AuthenticationService, private router: Router) {}

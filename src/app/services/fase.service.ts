@@ -19,4 +19,8 @@ export class FaseService {
     getFases() {
         return this.fases;
     }
+
+    getFase(faseId) {
+        return this.fases.find(fase => fase.fase_id == faseId);
+    }
 }

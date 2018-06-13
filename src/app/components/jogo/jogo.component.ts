@@ -4,6 +4,8 @@ import { PalpiteService } from "../../services/palpite.service";
 import { EventsService } from "angular4-events/esm/src";
 import { JogoService } from "../../services/jogo.service";
 import { EquipeService } from "../../services/equipe.service";
+import * as moment from 'moment';
+import { AuthenticationService } from "../../services/authentication.service";
 
 @Component({
   selector: 'app-jogo',
@@ -23,9 +25,10 @@ export class JogoComponent implements AfterContentInit, OnChanges {
   };
 
   placarOficial = false;
+  today = moment("2018-06-15 12:59:00");
 
   constructor(private sedeService: SedeService, private equipeService: EquipeService, private palpiteService: PalpiteService, private jogoService: JogoService,
-    private events: EventsService, private pubsub: EventsService) { }
+    private events: EventsService, private pubsub: EventsService, private authenticationService: AuthenticationService) { }
 
   ngAfterContentInit() {
       this.pubsub.subscribe('resetPalpites', () => {
@@ -34,9 +37,10 @@ export class JogoComponent implements AfterContentInit, OnChanges {
 
       this.loadPalpite();
 
-      this.pubsub.subscribe('placarOficialMode', (placarOficial) => {
-        this.placarOficial = placarOficial;
-      });
+      this.placarOficial = this.isAdmin;
+      //this.pubsub.subscribe('placarOficialMode', (placarOficial) => {
+      //  this.placarOficial = placarOficial;
+      //});
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -54,6 +58,15 @@ export class JogoComponent implements AfterContentInit, OnChanges {
     this.palpite.equipe_mandante_id = this.jogo.equipe_mandante_id;
     this.palpite.equipe_visitante_id = this.jogo.equipe_visitante_id;
     this.palpite.grupo_id = this.jogo.grupo_id;
+  }
+
+  get isAdmin() {
+    return this.authenticationService.getUserDetails().roles.includes('ROLE_ADMIN');
+  }
+
+  lessThanHourToStartPlay() {
+    let diff = moment(`${this.jogo.data_realizacao} ${ this.jogo.hora_realizacao ? this.jogo.hora_realizacao : ""}`).diff(this.today, 'hours');
+    return diff <= 1;
   }
 
   get hasPenaltis() {
