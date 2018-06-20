@@ -66,7 +66,7 @@ export class JogoComponent implements AfterContentInit, OnChanges {
 
   lessThanHourToStartPlay() {
     let diff = moment(`${this.jogo.data_realizacao} ${ this.jogo.hora_realizacao ? this.jogo.hora_realizacao : ""}`).diff(this.today, 'hours');
-    return diff <= 1;
+    return diff <= 0;
   }
 
   get hasPenaltis() {
