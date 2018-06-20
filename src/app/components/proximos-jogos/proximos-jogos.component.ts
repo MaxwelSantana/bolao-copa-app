@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { EquipeService } from "../../services/equipe.service";
 import { PalpiteService } from "../../services/palpite.service";
 import { FaseService } from "../../services/fase.service";
+import { LoaderService } from "../../services/loader.service";
 
 @Component({
   selector: 'app-proximos-jogos',
@@ -29,25 +30,35 @@ export class ProximosJogosComponent implements OnInit, OnChanges {
 
   filtroSelecionado = {};
 
+  jogosSubscriber: any;
+  fasesSubscriber: any;
+
   @Input("userId")
   userId = null;
 
   constructor(private faseService: FaseService, private jogoService: JogoService,private equipeService: EquipeService, 
-    private pubsub: EventsService, private palpiteService: PalpiteService) { }
+    private pubsub: EventsService, private palpiteService: PalpiteService, private loaderService: LoaderService) { }
 
   ngOnInit() {
     //this.setFiltroByDataAtual();
+    this.loaderService.toggle();
     this.equipeService.loadEquipes();
     this.jogoService.loadJogos();
     this.faseService.loadFases();
 
-    this.pubsub.subscribe('jogosLoaded').subscribe(() => {
+    this.jogosSubscriber = this.pubsub.subscribe('jogosLoaded').subscribe(() => {
       this.setProximosJogos(this.jogoService.getJogos());
     });
 
-    this.pubsub.subscribe('fasesLoaded').subscribe(() => {
+    this.fasesSubscriber = this.pubsub.subscribe('fasesLoaded').subscribe(() => {
       this.filterComboByFase();
+      this.loaderService.toggle();
     });
+  }
+
+  ngOnDestroy() {
+    this.jogosSubscriber.unsubscribe();
+    this.fasesSubscriber.unsubscribe();
   }
 
   filterComboByFase() {

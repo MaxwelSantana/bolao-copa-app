@@ -8,6 +8,7 @@ import { PalpiteService } from "../../services/palpite.service";
 import { ToastrService } from "ngx-toastr";
 import { MessageService } from "../../services/message.service";
 import { AuthenticationService } from "../../services/authentication.service";
+import { LoaderService } from "../../services/loader.service";
 
 @Component({
   selector: 'app-fases',
@@ -18,25 +19,39 @@ export class FasesComponent implements OnInit {
   indexFase = 0;
   placarOficial = false;
 
-  constructor(private faseService: FaseService, private equipeService: EquipeService, 
+  jogosSubscriber: any;
+  loadAllSubscriber: any;
+  palpitesSubscriber: any;
+
+  constructor(private faseService: FaseService, private equipeService: EquipeService, private loaderService: LoaderService,
     private jogoService: JogoService, private sedeService: SedeService, private authenticationService: AuthenticationService,
     private palpiteService: PalpiteService, private pubsub: EventsService,  private events: EventsService, private messageService: MessageService) { }
 
   ngOnInit() {
-    this.pubsub.subscribe('loadAll').subscribe(() => {
+    this.loadAllSubscriber = this.pubsub.subscribe('loadAll').subscribe(() => {
         this.loadAll();
     });
     this.loadAll();
   }
 
   loadAll() {
+    this.loaderService.toggle();
     this.faseService.loadFases();
     this.sedeService.loadSedes();
     this.palpiteService.loadPalpites();
-    this.pubsub.subscribe('palpitesLoaded').subscribe(() => {
+    this.jogosSubscriber = this.pubsub.subscribe('jogosLoaded').subscribe(() => {
+        this.loaderService.toggle();
+    });
+    this.palpitesSubscriber = this.pubsub.subscribe('palpitesLoaded').subscribe(() => {
         this.equipeService.loadEquipes();
         this.jogoService.loadJogos();
     });
+  }
+
+  ngOnDestroy() {
+    this.jogosSubscriber.unsubscribe();
+    this.loadAllSubscriber.unsubscribe();
+    this.palpitesSubscriber.unsubscribe();
   }
 
   resetPalpites() {

@@ -3,6 +3,7 @@ import { EventsService } from "angular4-events/esm/src";
 import { UserEndpointService } from "../../services/user-endpoint.service";
 import { PalpiteService } from "../../services/palpite.service";
 import { PLAYER } from "../shared/constants/roles.constants";
+import { LoaderService } from "../../services/loader.service";
 
 @Component({
   selector: 'app-classificacao',
@@ -20,16 +21,26 @@ export class ClassificacaoComponent implements OnInit {
 
   selectedUser: any = null;
 
-  constructor(private userEndpointService: UserEndpointService, private palpiteService:PalpiteService,  private pubsub: EventsService) { }
+  palpiteSubscriber: any;
+
+  constructor(private userEndpointService: UserEndpointService, private palpiteService:PalpiteService,  
+    private pubsub: EventsService, private loaderService: LoaderService) { }
 
   ngOnInit() {
+    this.loaderService.toggle();
     this.userEndpointService.getUsers().subscribe(usuarios => {
         this.setUsuarios(usuarios);
     });
     this.palpiteService.loadPalpites();
-    this.pubsub.subscribe('palpitesLoaded').subscribe(() => {
+    
+    this.palpiteSubscriber = this.pubsub.subscribe('palpitesLoaded').subscribe(() => {
         this.updatePontuacao();
+        this.loaderService.toggle();
     });
+  }
+
+  ngOnDestroy() {
+    this.palpiteSubscriber.unsubscribe();
   }
 
   setUsuarios(usuarios) {

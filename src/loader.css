@@ -18,8 +18,8 @@
 
 .center-loader {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: calc(50% - 18px);
+    top: calc(50% - 18px);
     font-size: 36px;
 }
 
