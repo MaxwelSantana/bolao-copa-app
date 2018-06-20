@@ -1,0 +1,65 @@
+.nav-bar {
+    display: flex;
+    max-width: 1075px;
+    margin: 0 auto !important;
+    /*padding: 0 20px;*/
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-bar ul, .nav-bar .my-account {
+    font-size: 16px;
+    flex: 2;
+}
+
+.nav-bar .title {
+	flex: auto;
+    display: flex;
+}
+
+.nav-bar li {
+    float: left;
+}
+
+.my-account a {
+    float: right;
+}
+
+.nav-bar li a, .my-account a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0 16px;
+    text-decoration: none;
+}
+
+.nav-bar li a:hover, .my-account a:hover {
+    background-color: #2C7500;
+}
+
+.nav-bar .my-account {
+    text-align: end;
+}
+
+@media (max-width: 767px) {
+    .nav-bar {
+        justify-content: center;
+    }
+
+    .nav-bar ul {
+        display: none;
+    }
+
+    .nav-bar .title {
+        flex: none;
+    }
+
+    .nav-bar .my-account {
+        display: none
+    }
+}

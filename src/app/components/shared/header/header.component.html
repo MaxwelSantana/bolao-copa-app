@@ -1,5 +1,23 @@
 <div class="header">
-  <span>
-    <strong>BOLÃO MOPAS</strong>
-  </span>
+    <nav class="nav-bar">
+      <ul>
+        <li>
+          <a routerLinkActive="active" [routerLink]="['/classificacao']">Classificação</a>
+        </li>
+        <li>
+          <a [routerLink]="['/fases']">Fases</a>
+        </li>
+        <li>
+          <a [routerLink]="['/proximos-jogos']">Próximos Jogos</a>
+        </li>
+      </ul>
+      <span style="flex: auto;">
+        <strong>BOLÃO MOPAS</strong>
+      </span>
+      <div class="my-account">
+        <a [routerLink]="['/account']">
+          Minha Conta
+        </a>
+      </div>
+    </nav>
 </div>

@@ -585,3 +585,7 @@ input.placar-input[type=number]::-webkit-inner-spin-button {
 .select-rodada {
     width: 100%;
 }
+
+.no-padding {
+    padding: 0 !important;
+}
