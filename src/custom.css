@@ -589,3 +589,11 @@ input.placar-input[type=number]::-webkit-inner-spin-button {
 .no-padding {
     padding: 0 !important;
 }
+
+.classificacao .tabela-com-jogos-por-grupo {
+    width: 100%;
+}
+
+.classificacao header {
+    text-align: center;
+}

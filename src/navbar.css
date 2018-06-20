@@ -38,7 +38,7 @@
     text-decoration: none;
 }
 
-.nav-bar li a:hover, .my-account a:hover {
+.nav-bar li a:hover, .my-account a:hover, a.active {
     background-color: #2C7500;
 }
 
