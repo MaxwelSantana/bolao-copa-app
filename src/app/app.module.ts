@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
@@ -79,6 +79,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt" },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     AuthenticationService,
     AuthGuard,
     FaseService, 
