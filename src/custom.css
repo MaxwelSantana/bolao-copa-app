@@ -594,6 +594,8 @@ input.placar-input[type=number]::-webkit-inner-spin-button {
     width: 100%;
 }
 
-.classificacao header {
-    text-align: center;
+@media (min-width: 767px) {
+    .classificacao header {
+        text-align: center;
+    }
 }
